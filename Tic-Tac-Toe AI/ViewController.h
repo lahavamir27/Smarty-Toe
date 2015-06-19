@@ -7,6 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GameCellUI.h"
+#import "GameBoardUI.h"
+#import "Player.h"
+#import "Board.h"
+#import "Ai.h"
+
+enum{
+    singlePlyer = 0,
+    twoPlayer = 1,
+};
+typedef NSUInteger TTTGameMode;
 
 @interface ViewController : UIViewController
 

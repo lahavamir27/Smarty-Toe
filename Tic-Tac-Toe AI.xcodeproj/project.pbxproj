@@ -14,6 +14,11 @@
 		4D2E7CFF1B2AE55C007A08F3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D2E7CFE1B2AE55C007A08F3 /* Images.xcassets */; };
 		4D2E7D021B2AE55C007A08F3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2E7D001B2AE55C007A08F3 /* LaunchScreen.xib */; };
 		4D2E7D0E1B2AE55C007A08F3 /* Tic_Tac_Toe_AITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2E7D0D1B2AE55C007A08F3 /* Tic_Tac_Toe_AITests.m */; };
+		4D2E7D191B2AF1FB007A08F3 /* GameCellUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2E7D181B2AF1FB007A08F3 /* GameCellUI.m */; };
+		4D2E7D1F1B2AF888007A08F3 /* GameBoardUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2E7D1E1B2AF888007A08F3 /* GameBoardUI.m */; };
+		4D2E7D241B2B1151007A08F3 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2E7D231B2B1151007A08F3 /* Player.m */; };
+		4D2E7D271B2C61FE007A08F3 /* Board.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2E7D261B2C61FE007A08F3 /* Board.m */; };
+		4D2E7D2A1B2DDDDE007A08F3 /* AI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2E7D291B2DDDDE007A08F3 /* AI.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +45,16 @@
 		4D2E7D071B2AE55C007A08F3 /* Tic-Tac-Toe AITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tic-Tac-Toe AITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D2E7D0C1B2AE55C007A08F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D2E7D0D1B2AE55C007A08F3 /* Tic_Tac_Toe_AITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tic_Tac_Toe_AITests.m; sourceTree = "<group>"; };
+		4D2E7D171B2AF1FB007A08F3 /* GameCellUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCellUI.h; sourceTree = "<group>"; };
+		4D2E7D181B2AF1FB007A08F3 /* GameCellUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCellUI.m; sourceTree = "<group>"; };
+		4D2E7D1D1B2AF888007A08F3 /* GameBoardUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameBoardUI.h; sourceTree = "<group>"; };
+		4D2E7D1E1B2AF888007A08F3 /* GameBoardUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameBoardUI.m; sourceTree = "<group>"; };
+		4D2E7D221B2B1151007A08F3 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		4D2E7D231B2B1151007A08F3 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		4D2E7D251B2C61FE007A08F3 /* Board.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Board.h; sourceTree = "<group>"; };
+		4D2E7D261B2C61FE007A08F3 /* Board.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Board.m; sourceTree = "<group>"; };
+		4D2E7D281B2DDDDE007A08F3 /* AI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AI.h; sourceTree = "<group>"; };
+		4D2E7D291B2DDDDE007A08F3 /* AI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AI.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +96,8 @@
 		4D2E7CF01B2AE55C007A08F3 /* Tic-Tac-Toe AI */ = {
 			isa = PBXGroup;
 			children = (
+				4D2E7D211B2B1130007A08F3 /* MODEL */,
+				4D2E7D201B2B1114007A08F3 /* UI */,
 				4D2E7CF51B2AE55C007A08F3 /* AppDelegate.h */,
 				4D2E7CF61B2AE55C007A08F3 /* AppDelegate.m */,
 				4D2E7CF81B2AE55C007A08F3 /* ViewController.h */,
@@ -117,6 +134,30 @@
 				4D2E7D0C1B2AE55C007A08F3 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4D2E7D201B2B1114007A08F3 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				4D2E7D1D1B2AF888007A08F3 /* GameBoardUI.h */,
+				4D2E7D1E1B2AF888007A08F3 /* GameBoardUI.m */,
+				4D2E7D171B2AF1FB007A08F3 /* GameCellUI.h */,
+				4D2E7D181B2AF1FB007A08F3 /* GameCellUI.m */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		4D2E7D211B2B1130007A08F3 /* MODEL */ = {
+			isa = PBXGroup;
+			children = (
+				4D2E7D221B2B1151007A08F3 /* Player.h */,
+				4D2E7D231B2B1151007A08F3 /* Player.m */,
+				4D2E7D251B2C61FE007A08F3 /* Board.h */,
+				4D2E7D261B2C61FE007A08F3 /* Board.m */,
+				4D2E7D281B2DDDDE007A08F3 /* AI.h */,
+				4D2E7D291B2DDDDE007A08F3 /* AI.m */,
+			);
+			name = MODEL;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,9 +260,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D2E7D271B2C61FE007A08F3 /* Board.m in Sources */,
+				4D2E7D2A1B2DDDDE007A08F3 /* AI.m in Sources */,
 				4D2E7CFA1B2AE55C007A08F3 /* ViewController.m in Sources */,
 				4D2E7CF71B2AE55C007A08F3 /* AppDelegate.m in Sources */,
 				4D2E7CF41B2AE55C007A08F3 /* main.m in Sources */,
+				4D2E7D1F1B2AF888007A08F3 /* GameBoardUI.m in Sources */,
+				4D2E7D241B2B1151007A08F3 /* Player.m in Sources */,
+				4D2E7D191B2AF1FB007A08F3 /* GameCellUI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
