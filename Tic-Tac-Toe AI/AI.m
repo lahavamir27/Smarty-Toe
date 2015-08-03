@@ -22,76 +22,158 @@
 @implementation AI
 
 
-
--(NSInteger)bestMove:(TTTLevel)level currentBoard:(Board*)board
+-(BOOL)bestMove:(level)level
 {
-    if (!_currentBoard) {
-        _currentBoard = [[Board alloc]init];
+    double r = drand48();
+    NSLog(@"r is %f",r);
+
+    switch (level) {
+        case easy:
+            if (r<.1) {
+                return YES;
+            }
+            return NO;
+            break;
+        case meduim:
+            if (r<.3) {
+                return YES;
+            }
+            return NO;
+            break;
+            
+        case hard:
+            if (r<.6) {
+                return YES;
+            }
+            return NO;
+            break;
+            
+        default:
+            return YES;
+            break;
     }
+}
+
+- (NSInteger)bestMove:(TTTPlayerType)player currentBoard:(Board *)board andLevel:(level)level
+{
+    
+    // if the board is empty return random index
+    if ([board isEmpty:board])
+    {
+        return arc4random_uniform(8);
+    }
+    
     _currentBoard = board;
     
-    switch (level) {
-        case 0:
-            return [self levelEasyBestMove];
-            break;
-        case 1:
-            return [self levelMediumBestMove];
-            break;
-        default:
-            return 0;
-            break;
+    BOOL bestMove = [self bestMove:level];
+    if (bestMove)
+    {
+        // else get the best move you can
+        NSInteger move = [self negamaxForMarker:player withBoard:board depth:1 alpha:-10000 beta:10000];
+        return move;
+    }else
+    {
+        return [self getRandomMove];
     }
+
 }
 
--(NSInteger)levelEasyBestMove
+-(NSInteger)getRandomMove
 {
-    NSInteger bestMove;
-    NSMutableArray *legelMoves = [_currentBoard legalMoves];
-    if (legelMoves.count == 0) {
+    
+    if ([_currentBoard isGameComplete]) {
         return -1;
     }
-    int count = (int) legelMoves.count;
-    int index = arc4random_uniform(count);
-    bestMove = [legelMoves[index] integerValue];
-    return bestMove;
+    NSMutableArray *legalMoves = [_currentBoard legalMoves];
+    long count = legalMoves.count-1;
+    NSInteger index = arc4random_uniform((unsigned int)count);
+
+    return [legalMoves[index] integerValue];
 }
 
--(NSInteger)levelMediumBestMove
-{
-    NSInteger bestMove;
-    
-    NSMutableArray *legelMoves = [_currentBoard legalMoves];
+#pragma mark - AI Methods
 
-    if (legelMoves.count == 0) {
-        return -1;
+//
+// Calculates the best move using the Negamax algorith enhanced with alpha-beta pruning, recursively.
+//
+- (NSInteger) negamaxForMarker:(TTTPlayerType)player withBoard:(Board*)board depth:(NSInteger)depth alpha:(NSInteger)alpha beta:(NSInteger)beta
+{
+    NSInteger bestMove = 0;
+    NSInteger bestAlpha = -10000;
+    
+    
+    TTTPlayerType opponent = [board getOpponent:player];
+    
+    if ([board isGameComplete])
+    {
+        return [self scoreBoard:board forPlayer:player];
     }
     
-    for (int i = 0; i<legelMoves.count; i++) {
-        if ([legelMoves[i]integerValue] == 4)
-        {
-            return 4;
+    // get all node suns
+    
+   NSMutableArray *legalMoves = [board legalMoves];
+    
+    // Loop through the available moves and recursively run negamax to find the move with the best score i.e. alpha
+    for (int i = 0; i < [legalMoves count]; i++)
+    {
+        
+        NSInteger move = [legalMoves[i] integerValue];
+        
+        // evaluate board for next state
+        [board placeMove:player atIndex:move];
+        
+        // call recursively
+        NSInteger score = -[self negamaxForMarker:opponent withBoard:board depth:depth + 1 alpha:-beta beta:-alpha];
+        
+        // get board to first state
+        [board undoMoveAtLocation:move];
+        
+        // Found better score, update alpha
+        if (score > alpha) {
+            alpha = score;
         }
-
         
+        // Prune the branch since the branch is not favorable to the player
+        if (alpha >= beta) {
+            break;
+        }
+        
+        // Save the best seen move and alpha if we're at the original root node
+        if (depth == 1 && alpha > bestAlpha) {
+            bestAlpha = alpha;
+            bestMove = move;
+        }
     }
     
-    NSLog(@"%d",(int)[_currentBoard twoInARow]);
-    for (int i = 0; i<legelMoves.count; i++)
-       {
-            if ([legelMoves[i]integerValue] == 0)
-            {
-                return 0;
-            }
-       }
-        
-        
-    
-    int count = (int) legelMoves.count;
-    int index = arc4random_uniform(count);
-    bestMove = [legelMoves[index] integerValue];
-    
-    return bestMove;
+    // Return the move if we're at the root node, otherwise we want to return the alpha for the recursive call
+    if (depth == 1) {
+        return bestMove;
+    } else {
+        return alpha;
+    }
+}
 
+
+#pragma mark - Evalute state
+
+
+- (NSInteger) scoreBoard:(Board*)board forPlayer:(TTTPlayerType)player
+{
+    TTTPlayerType winner = [board winner];
+    TTTPlayerType opponent = [board getOpponent:player];
+    
+    // Winning outcome for the player, score highly
+    if (winner == player) {
+        return 1;
+    }
+    
+    // Losing outcome for the player, score poorly
+    if (winner == opponent) {
+        return -1;
+    }
+    
+    // Otherwise, game have a draw
+    return 0;
 }
 
 @end

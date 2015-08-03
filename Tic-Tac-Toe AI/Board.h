@@ -7,24 +7,26 @@
 //
 
 #import <Foundation/Foundation.h>
-enum {
-    boardMarkX = -1,
-    boardMarkEmpty = 0,
-    boardMark0 = 1,
-};
-typedef NSUInteger TTTPlayerType;
+#import "Player.h"
+
 
 @interface Board : NSObject
+@property (nonatomic,strong)NSMutableArray *grid;
 
 
+- (instancetype)init;
 
--(instancetype)init;
--(BOOL)twoInARow;
--(void)resetBoard;
+- (void)undoMoveAtLocation:(NSInteger)index;
+- (void)resetBoard;
+
 -(NSMutableArray*)legalMoves;
--(void)placeMove:(TTTPlayerType)player atIndex:(NSInteger)index;
+-(BOOL)isGameComplete;
 -(TTTPlayerType)winner;
 -(NSMutableArray*)getGrid;
--(BOOL)isGameComplete;
+-(NSInteger)getOpponent:(TTTPlayerType)player;
+-(void)clearBoard;
+
+-(void)placeMove:(TTTPlayerType)player atIndex:(NSInteger)index;
+-(BOOL)isEmpty:(Board*)board;
 
 @end

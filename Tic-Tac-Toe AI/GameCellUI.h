@@ -13,5 +13,10 @@
 -(instancetype)initWithFrame:(CGRect)frame;
 -(void)setLabelTitle:(NSString*)str;
 -(NSString*)getLableTitle;
+-(void)setLabelCenter:(CGPoint)center;
+-(void)colorPink;
+-(void)colorWhite;
+-(void)addLabel;
+-(void)removeLabel;
 
 @end

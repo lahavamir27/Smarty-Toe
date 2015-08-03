@@ -7,19 +7,31 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GameCellUI.h"
 #import "GameBoardUI.h"
-#import "Player.h"
-#import "Board.h"
 #import "Ai.h"
+#import "ButtomScoreBoard.h"
+#import "ButtomButton.h"
+#import "NavigationBar.h"
+#import "Clock.h"
+#import "FirstViewController.h"
+
 
 enum{
-    singlePlyer = 0,
-    twoPlayer = 1,
+    xHumanOComputer = 0,
+    xHumanOHuman = 1,
+    xComputerOhuman = 2,
 };
 typedef NSUInteger TTTGameMode;
 
+enum{
+    xTurn = 0,
+    oTurn = 1,
+};
+typedef NSUInteger TTTturn;
+
 @interface ViewController : UIViewController
+
+@property (nonatomic) TTTGameMode gameMode;
 
 
 @end

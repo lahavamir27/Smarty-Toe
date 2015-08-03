@@ -12,12 +12,14 @@
 
 @interface Board()
 
-@property (nonatomic,strong)NSMutableArray *grid;
+@property (nonatomic) Board *test;
 
 @end
 
 
 @implementation Board
+
+
 
 
 
@@ -29,6 +31,7 @@
     }
     return self;
 }
+
 
 -(NSMutableArray*)getGrid
 {
@@ -51,6 +54,17 @@
         NSNumber *marker = [NSNumber numberWithLong:player];
         [_grid replaceObjectAtIndex:index withObject:marker];
     }
+}
+
+
+-(NSInteger)getOpponent:(TTTPlayerType)player
+{
+    
+    if (player == boardMarkX)
+    {
+        return boardMarkO;
+    }
+    return boardMarkX;
 }
 
 -(NSMutableArray*)legalMoves
@@ -99,10 +113,10 @@
     
     // diagonal winer
     if (rightDiagonal == 3 || leftDiagonal == 3) {
-        return  boardMark0;
+        return  boardMarkX;
     }
     if (rightDiagonal == -3 || leftDiagonal == -3) {
-        return  boardMarkX;
+        return  boardMarkO;
     }
     
     for (int i = 0; i < 3 ; i++) {
@@ -110,10 +124,10 @@
         long columnScore = [self scoreForColumn:i];
         
         if (rowScore == 3 || columnScore == 3) {
-            return boardMark0;
+            return boardMarkX;
         }
         if (rowScore == -3 || columnScore == -3) {
-            return boardMarkX;
+            return boardMarkO;
         }
     
     }
@@ -121,31 +135,6 @@
     return boardMarkEmpty;
 }
 
--(BOOL)twoInARow
-{
-    long leftDiagonal = [self scoreForDiagonal:0];
-    long rightDiagonal = [self scoreForDiagonal:2];
-    
-    
-    // diagonal winer
-    if (rightDiagonal == 2 || leftDiagonal == 2) {
-        return  YES;
-    }
-
-    
-    for (int i = 0; i < 3 ; i++) {
-        long rowScore = [self scoreForRow:i];
-        long columnScore = [self scoreForColumn:i];
-        
-        if (rowScore == 2 || columnScore == 2) {
-            return YES;
-        }
-
-        
-    }
-    
-    return NO;
-}
 
 -(BOOL)isGameComplete
 {
@@ -219,4 +208,21 @@
     return score;
     
 }
+
+-(BOOL)isEmpty:(Board*)board;
+{
+    for (int i = 0; i<board.grid.count; i++) {
+        if (![board.grid[i]  isEqual: @0]) {
+            return NO;
+        }
+    }
+    return YES;
+}
+
+-(void)clearBoard
+{
+    [self.grid removeAllObjects];
+}
+
+
 @end

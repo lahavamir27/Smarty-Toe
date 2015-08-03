@@ -7,18 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2930E85C1B635CC1002D22D6 /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = 2930E85B1B635CC1002D22D6 /* Level.m */; };
+		29E3F9BD1B66B8BB00AC15EE /* LogoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E3F9BC1B66B8BB00AC15EE /* LogoView.m */; };
+		29E3F9BF1B67F99E00AC15EE /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29E3F9BE1B67F99E00AC15EE /* Launch Screen.xib */; };
 		4D2E7CF41B2AE55C007A08F3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2E7CF31B2AE55C007A08F3 /* main.m */; };
 		4D2E7CF71B2AE55C007A08F3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2E7CF61B2AE55C007A08F3 /* AppDelegate.m */; };
 		4D2E7CFA1B2AE55C007A08F3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2E7CF91B2AE55C007A08F3 /* ViewController.m */; };
 		4D2E7CFD1B2AE55C007A08F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D2E7CFB1B2AE55C007A08F3 /* Main.storyboard */; };
 		4D2E7CFF1B2AE55C007A08F3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D2E7CFE1B2AE55C007A08F3 /* Images.xcassets */; };
-		4D2E7D021B2AE55C007A08F3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2E7D001B2AE55C007A08F3 /* LaunchScreen.xib */; };
 		4D2E7D0E1B2AE55C007A08F3 /* Tic_Tac_Toe_AITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2E7D0D1B2AE55C007A08F3 /* Tic_Tac_Toe_AITests.m */; };
 		4D2E7D191B2AF1FB007A08F3 /* GameCellUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2E7D181B2AF1FB007A08F3 /* GameCellUI.m */; };
 		4D2E7D1F1B2AF888007A08F3 /* GameBoardUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2E7D1E1B2AF888007A08F3 /* GameBoardUI.m */; };
 		4D2E7D241B2B1151007A08F3 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2E7D231B2B1151007A08F3 /* Player.m */; };
 		4D2E7D271B2C61FE007A08F3 /* Board.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2E7D261B2C61FE007A08F3 /* Board.m */; };
 		4D2E7D2A1B2DDDDE007A08F3 /* AI.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2E7D291B2DDDDE007A08F3 /* AI.m */; };
+		4D2E7D2D1B344EC2007A08F3 /* ButtomScoreBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2E7D2C1B344EC2007A08F3 /* ButtomScoreBoard.m */; };
+		4D2E7D301B35873F007A08F3 /* GridLines.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2E7D2F1B35873F007A08F3 /* GridLines.m */; };
+		4D30A29C1B3EC741005AC530 /* Clock.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D30A29B1B3EC741005AC530 /* Clock.m */; };
+		4D30A2A41B42FFD7005AC530 /* back1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D30A2A31B42FFD7005AC530 /* back1.png */; };
+		4DD649691B3DA5A8006DF972 /* ButtomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD649681B3DA5A8006DF972 /* ButtomButton.m */; };
+		4DD6496D1B3DC68D006DF972 /* NavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD6496C1B3DC68D006DF972 /* NavigationBar.m */; };
+		4DE886181B3892DE00D8D80D /* JosefinSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DE886141B388EA800D8D80D /* JosefinSans-Light.ttf */; };
+		4DE886191B3892E400D8D80D /* JosefinSans-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DE886151B388EBB00D8D80D /* JosefinSans-Thin.ttf */; };
+		4DE8861A1B3892FD00D8D80D /* JosefinSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DE886161B388EC300D8D80D /* JosefinSans-Regular.ttf */; };
+		4DE8861B1B38930300D8D80D /* JosefinSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DE886171B388ECF00D8D80D /* JosefinSans-Bold.ttf */; };
+		4DE8861E1B3B3ECF00D8D80D /* PlayerType.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8861D1B3B3ECF00D8D80D /* PlayerType.m */; };
+		4DE886221B3D64D400D8D80D /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE886211B3D64D400D8D80D /* FirstViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +46,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2930E85A1B635CC1002D22D6 /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
+		2930E85B1B635CC1002D22D6 /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Level.m; sourceTree = "<group>"; };
+		29E3F9BB1B66B8BB00AC15EE /* LogoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogoView.h; sourceTree = "<group>"; };
+		29E3F9BC1B66B8BB00AC15EE /* LogoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogoView.m; sourceTree = "<group>"; };
+		29E3F9BE1B67F99E00AC15EE /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		4D2E7CEE1B2AE55C007A08F3 /* Tic-Tac-Toe AI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tic-Tac-Toe AI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D2E7CF21B2AE55C007A08F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D2E7CF31B2AE55C007A08F3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -41,7 +60,6 @@
 		4D2E7CF91B2AE55C007A08F3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		4D2E7CFC1B2AE55C007A08F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4D2E7CFE1B2AE55C007A08F3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		4D2E7D011B2AE55C007A08F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4D2E7D071B2AE55C007A08F3 /* Tic-Tac-Toe AITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tic-Tac-Toe AITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D2E7D0C1B2AE55C007A08F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D2E7D0D1B2AE55C007A08F3 /* Tic_Tac_Toe_AITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tic_Tac_Toe_AITests.m; sourceTree = "<group>"; };
@@ -55,6 +73,26 @@
 		4D2E7D261B2C61FE007A08F3 /* Board.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Board.m; sourceTree = "<group>"; };
 		4D2E7D281B2DDDDE007A08F3 /* AI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AI.h; sourceTree = "<group>"; };
 		4D2E7D291B2DDDDE007A08F3 /* AI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AI.m; sourceTree = "<group>"; };
+		4D2E7D2B1B344EC2007A08F3 /* ButtomScoreBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtomScoreBoard.h; sourceTree = "<group>"; };
+		4D2E7D2C1B344EC2007A08F3 /* ButtomScoreBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtomScoreBoard.m; sourceTree = "<group>"; };
+		4D2E7D2E1B35873F007A08F3 /* GridLines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridLines.h; sourceTree = "<group>"; };
+		4D2E7D2F1B35873F007A08F3 /* GridLines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridLines.m; sourceTree = "<group>"; };
+		4D30A29A1B3EC741005AC530 /* Clock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Clock.h; sourceTree = "<group>"; };
+		4D30A29B1B3EC741005AC530 /* Clock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Clock.m; sourceTree = "<group>"; };
+		4D30A2A21B4049CC005AC530 /* JosefinSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		4D30A2A31B42FFD7005AC530 /* back1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back1.png; sourceTree = "<group>"; };
+		4DD649671B3DA5A8006DF972 /* ButtomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtomButton.h; sourceTree = "<group>"; };
+		4DD649681B3DA5A8006DF972 /* ButtomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtomButton.m; sourceTree = "<group>"; };
+		4DD6496B1B3DC68D006DF972 /* NavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationBar.h; sourceTree = "<group>"; };
+		4DD6496C1B3DC68D006DF972 /* NavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationBar.m; sourceTree = "<group>"; };
+		4DE886141B388EA800D8D80D /* JosefinSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Light.ttf"; sourceTree = "<group>"; };
+		4DE886151B388EBB00D8D80D /* JosefinSans-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Thin.ttf"; sourceTree = "<group>"; };
+		4DE886161B388EC300D8D80D /* JosefinSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Regular.ttf"; sourceTree = "<group>"; };
+		4DE886171B388ECF00D8D80D /* JosefinSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "JosefinSans-Bold.ttf"; sourceTree = "<group>"; };
+		4DE8861C1B3B3ECF00D8D80D /* PlayerType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerType.h; sourceTree = "<group>"; };
+		4DE8861D1B3B3ECF00D8D80D /* PlayerType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerType.m; sourceTree = "<group>"; };
+		4DE886201B3D64D400D8D80D /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		4DE886211B3D64D400D8D80D /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,15 +134,9 @@
 		4D2E7CF01B2AE55C007A08F3 /* Tic-Tac-Toe AI */ = {
 			isa = PBXGroup;
 			children = (
+				4DD6496A1B3DAEC0006DF972 /* VIEWCONTROLLER */,
 				4D2E7D211B2B1130007A08F3 /* MODEL */,
 				4D2E7D201B2B1114007A08F3 /* UI */,
-				4D2E7CF51B2AE55C007A08F3 /* AppDelegate.h */,
-				4D2E7CF61B2AE55C007A08F3 /* AppDelegate.m */,
-				4D2E7CF81B2AE55C007A08F3 /* ViewController.h */,
-				4D2E7CF91B2AE55C007A08F3 /* ViewController.m */,
-				4D2E7CFB1B2AE55C007A08F3 /* Main.storyboard */,
-				4D2E7CFE1B2AE55C007A08F3 /* Images.xcassets */,
-				4D2E7D001B2AE55C007A08F3 /* LaunchScreen.xib */,
 				4D2E7CF11B2AE55C007A08F3 /* Supporting Files */,
 			);
 			path = "Tic-Tac-Toe AI";
@@ -113,6 +145,7 @@
 		4D2E7CF11B2AE55C007A08F3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4DE8861F1B3D5E9700D8D80D /* font */,
 				4D2E7CF21B2AE55C007A08F3 /* Info.plist */,
 				4D2E7CF31B2AE55C007A08F3 /* main.m */,
 			);
@@ -139,10 +172,24 @@
 		4D2E7D201B2B1114007A08F3 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				29E3F9BB1B66B8BB00AC15EE /* LogoView.h */,
+				29E3F9BC1B66B8BB00AC15EE /* LogoView.m */,
+				4D2E7D2E1B35873F007A08F3 /* GridLines.h */,
+				4D2E7D2F1B35873F007A08F3 /* GridLines.m */,
+				4D30A29A1B3EC741005AC530 /* Clock.h */,
+				4D30A29B1B3EC741005AC530 /* Clock.m */,
 				4D2E7D1D1B2AF888007A08F3 /* GameBoardUI.h */,
 				4D2E7D1E1B2AF888007A08F3 /* GameBoardUI.m */,
 				4D2E7D171B2AF1FB007A08F3 /* GameCellUI.h */,
 				4D2E7D181B2AF1FB007A08F3 /* GameCellUI.m */,
+				4D2E7D2B1B344EC2007A08F3 /* ButtomScoreBoard.h */,
+				4D2E7D2C1B344EC2007A08F3 /* ButtomScoreBoard.m */,
+				4DD649671B3DA5A8006DF972 /* ButtomButton.h */,
+				4DD649681B3DA5A8006DF972 /* ButtomButton.m */,
+				4DD6496B1B3DC68D006DF972 /* NavigationBar.h */,
+				4DD6496C1B3DC68D006DF972 /* NavigationBar.m */,
+				4D30A2A31B42FFD7005AC530 /* back1.png */,
+				4D30A2A21B4049CC005AC530 /* JosefinSans-SemiBold.ttf */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -150,6 +197,10 @@
 		4D2E7D211B2B1130007A08F3 /* MODEL */ = {
 			isa = PBXGroup;
 			children = (
+				4DE8861C1B3B3ECF00D8D80D /* PlayerType.h */,
+				4DE8861D1B3B3ECF00D8D80D /* PlayerType.m */,
+				2930E85A1B635CC1002D22D6 /* Level.h */,
+				2930E85B1B635CC1002D22D6 /* Level.m */,
 				4D2E7D221B2B1151007A08F3 /* Player.h */,
 				4D2E7D231B2B1151007A08F3 /* Player.m */,
 				4D2E7D251B2C61FE007A08F3 /* Board.h */,
@@ -158,6 +209,33 @@
 				4D2E7D291B2DDDDE007A08F3 /* AI.m */,
 			);
 			name = MODEL;
+			sourceTree = "<group>";
+		};
+		4DD6496A1B3DAEC0006DF972 /* VIEWCONTROLLER */ = {
+			isa = PBXGroup;
+			children = (
+				4D2E7CF51B2AE55C007A08F3 /* AppDelegate.h */,
+				4D2E7CF61B2AE55C007A08F3 /* AppDelegate.m */,
+				4D2E7CF81B2AE55C007A08F3 /* ViewController.h */,
+				4D2E7CF91B2AE55C007A08F3 /* ViewController.m */,
+				4DE886201B3D64D400D8D80D /* FirstViewController.h */,
+				4DE886211B3D64D400D8D80D /* FirstViewController.m */,
+				4D2E7CFE1B2AE55C007A08F3 /* Images.xcassets */,
+				4D2E7CFB1B2AE55C007A08F3 /* Main.storyboard */,
+				29E3F9BE1B67F99E00AC15EE /* Launch Screen.xib */,
+			);
+			name = VIEWCONTROLLER;
+			sourceTree = "<group>";
+		};
+		4DE8861F1B3D5E9700D8D80D /* font */ = {
+			isa = PBXGroup;
+			children = (
+				4DE886141B388EA800D8D80D /* JosefinSans-Light.ttf */,
+				4DE886151B388EBB00D8D80D /* JosefinSans-Thin.ttf */,
+				4DE886161B388EC300D8D80D /* JosefinSans-Regular.ttf */,
+				4DE886171B388ECF00D8D80D /* JosefinSans-Bold.ttf */,
+			);
+			name = font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,8 +318,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DE8861B1B38930300D8D80D /* JosefinSans-Bold.ttf in Resources */,
+				4DE8861A1B3892FD00D8D80D /* JosefinSans-Regular.ttf in Resources */,
+				4DE886191B3892E400D8D80D /* JosefinSans-Thin.ttf in Resources */,
+				4DE886181B3892DE00D8D80D /* JosefinSans-Light.ttf in Resources */,
 				4D2E7CFD1B2AE55C007A08F3 /* Main.storyboard in Resources */,
-				4D2E7D021B2AE55C007A08F3 /* LaunchScreen.xib in Resources */,
+				29E3F9BF1B67F99E00AC15EE /* Launch Screen.xib in Resources */,
+				4D30A2A41B42FFD7005AC530 /* back1.png in Resources */,
 				4D2E7CFF1B2AE55C007A08F3 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,11 +344,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D2E7D271B2C61FE007A08F3 /* Board.m in Sources */,
+				4DD6496D1B3DC68D006DF972 /* NavigationBar.m in Sources */,
 				4D2E7D2A1B2DDDDE007A08F3 /* AI.m in Sources */,
+				4D2E7D2D1B344EC2007A08F3 /* ButtomScoreBoard.m in Sources */,
 				4D2E7CFA1B2AE55C007A08F3 /* ViewController.m in Sources */,
 				4D2E7CF71B2AE55C007A08F3 /* AppDelegate.m in Sources */,
+				4DD649691B3DA5A8006DF972 /* ButtomButton.m in Sources */,
+				4DE8861E1B3B3ECF00D8D80D /* PlayerType.m in Sources */,
+				4D2E7D301B35873F007A08F3 /* GridLines.m in Sources */,
+				4D30A29C1B3EC741005AC530 /* Clock.m in Sources */,
+				2930E85C1B635CC1002D22D6 /* Level.m in Sources */,
+				4DE886221B3D64D400D8D80D /* FirstViewController.m in Sources */,
 				4D2E7CF41B2AE55C007A08F3 /* main.m in Sources */,
 				4D2E7D1F1B2AF888007A08F3 /* GameBoardUI.m in Sources */,
+				29E3F9BD1B66B8BB00AC15EE /* LogoView.m in Sources */,
 				4D2E7D241B2B1151007A08F3 /* Player.m in Sources */,
 				4D2E7D191B2AF1FB007A08F3 /* GameCellUI.m in Sources */,
 			);
@@ -296,14 +388,6 @@
 				4D2E7CFC1B2AE55C007A08F3 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		4D2E7D001B2AE55C007A08F3 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4D2E7D011B2AE55C007A08F3 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -393,9 +477,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "Tic-Tac-Toe AI/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -403,9 +490,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "Tic-Tac-Toe AI/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -462,6 +552,7 @@
 				4D2E7D131B2AE55C007A08F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4D2E7D141B2AE55C007A08F3 /* Build configuration list for PBXNativeTarget "Tic-Tac-Toe AITests" */ = {
 			isa = XCConfigurationList;
@@ -470,6 +561,7 @@
 				4D2E7D161B2AE55C007A08F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -8,17 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "Board.h"
-enum {
-    easy = 0,
-    medium = 1,
-    hard = 2,
-};
-typedef NSUInteger TTTLevel;
+
 
 
 @interface AI : NSObject
 
--(NSInteger)bestMove:(TTTLevel)level currentBoard:(Board*)board;
+- (NSInteger)bestMove:(TTTPlayerType)player currentBoard:(Board *)board andLevel:(level)level;
 
 
 

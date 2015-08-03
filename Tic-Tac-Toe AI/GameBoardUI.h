@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "GameCellUI.h"
 #import "Board.h"
+#import "GridLines.h"
 
 @class GameBoardUI ;
 
@@ -21,6 +22,8 @@
 @protocol GameBoardUIDelegate <NSObject>
 
 -(void)cellPress:(GameBoardUI*)cell withCellNumber:(NSInteger)num;
+-(void)animationDidFinishLoad;
+
 
 @end
 
@@ -31,6 +34,13 @@
 
 -(instancetype)initWithFrame:(CGRect)frame andDataSource:(id<GameBoardUIDataSource>)dataSource;
 
+-(void)updateBoard:(NSInteger)index;
+
 -(void)updateBoardUI;
+-(void)fadeInAnimation;
+
+-(void)endGameAnimationUp;
+-(void)newGameAnimationDown;
+
 
 @end
