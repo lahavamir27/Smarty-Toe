@@ -38,7 +38,7 @@
     if (self) {
         
         [self setupUI];
-        self.backgroundColor = Rgb2UIColor(55  , 75, 92, 1);
+        self.backgroundColor = Rgb2UIColor(55, 75, 92, 1);
 
     }
     return self;

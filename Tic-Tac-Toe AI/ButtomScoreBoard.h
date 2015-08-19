@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Board.h"
-
+#import "UIColor+ExtendedColorScheme.h"
 
 @interface ButtomScoreBoard : UIView
 
@@ -21,5 +21,6 @@
 -(void)endGameAnimationUp;
 -(void)newGameAnimationDown;
 -(void)endGameAnimationDownWithDepth:(NSInteger)depth;
+
 
 @end

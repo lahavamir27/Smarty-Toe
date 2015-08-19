@@ -9,7 +9,7 @@
 #import "FirstViewController.h"
 #define BACKGROUND_COLOR   Rgb2UIColor(57, 79, 98, 1)
 #define Rgb2UIColor(r, g, b, a)  [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:(a)]
-
+#define IPAD UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
 #define WINDOW_SIZE_WIDTH  self.view.frame.size.width
 #define WINDOW_SIZE_HEIGHT  self.view.frame.size.height
 #define FONT(a) [UIFont fontWithName:@"Avenir-Book" size:(a)]
@@ -67,13 +67,22 @@
 
 -(void)initContainer
 {
-    double const ratio = 0.64;
+    double ratio = 0.64;
+    double width = WINDOW_SIZE_WIDTH;
     double const top = WINDOW_SIZE_HEIGHT* ratio;
-    double const height = WINDOW_SIZE_HEIGHT * (1-ratio) - 60;
+    double height = WINDOW_SIZE_HEIGHT * (1-ratio) - 60;
+    if (IPAD) {
+        width = WINDOW_SIZE_WIDTH/2;
+        ratio = 0.75;
+        height = WINDOW_SIZE_HEIGHT * (1-ratio) - 60;
+    }
     if (!_container) {
-        _container = [[UIView alloc]initWithFrame:CGRectMake(0, top, WINDOW_SIZE_WIDTH, height)];
+        _container = [[UIView alloc]initWithFrame:CGRectMake(0, top, width, height)];
 //        _container.backgroundColor = [UIColor redColor];
         [self.view addSubview:_container];
+    }
+    if (IPAD) {
+        _container.center = CGPointMake(width, _container.frame.origin.y+_container.frame.size.height/2);
     }
 }
 
@@ -91,9 +100,17 @@
 
 -(void)initHeaderContainer
 {
+    double width = WINDOW_SIZE_WIDTH;
+
+    if (IPAD) {
+        width = WINDOW_SIZE_WIDTH/2;
+    }
     if (!_headerContainer) {
-        _headerContainer = [[UIView alloc ]initWithFrame:CGRectMake(0, WINDOW_SIZE_HEIGHT*.64-25, WINDOW_SIZE_WIDTH, 25)];
+        _headerContainer = [[UIView alloc ]initWithFrame:CGRectMake(0, WINDOW_SIZE_HEIGHT*.64-25, width, 25)];
         [self.view addSubview:_headerContainer];
+    }
+    if (IPAD) {
+        _headerContainer.center = CGPointMake(width, _headerContainer.frame.origin.y+_headerContainer.frame.size.height/2);
     }
 }
 
@@ -131,11 +148,14 @@
 
     if (_player2human == NO && _player1human == NO) {
         _startGameButton.userInteractionEnabled = NO;
-        [_startGameButton disableButton];
+        [_startGameButton setButtomButtonColor:Rgb2UIColor(55  , 75, 92, 1) withAnimation:YES];
+        [_startGameButton setTitle:@"at least 1 human player"];
     }else
     {
         _startGameButton.userInteractionEnabled = YES;
-        [_startGameButton enableButton];
+        [_startGameButton setButtomButtonColor:Rgb2UIColor(75, 170, 221, 1) withAnimation:YES];
+        [_startGameButton setTitle:@"New Game"];
+
 
     }
     
@@ -189,7 +209,7 @@
     double const xGap = 95;
     double const buttonHeight = 33;
     double const buttonWidth = 80;
-
+    double const width = _container.frame.size.width;
 
     
     if (!_player1Humen) {
@@ -201,40 +221,17 @@
         _player1Humen.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         [_player1Humen setTitle:@"human" forState:UIControlStateNormal];
         [_player1Humen addTarget:nil action:@selector(player1DidPressed:) forControlEvents:UIControlEventTouchUpInside];
-/*
-        _player1Humen.alpha = 0;
-        _player1Humen.transform = CGAffineTransformMakeTranslation(0, -10);
-        [UIView animateWithDuration:0.3 delay:0.2 options:UIViewAnimationOptionCurveEaseOut animations:^{
-            _player1Humen.alpha = 1;
-            _player1Humen.transform = CGAffineTransformMakeTranslation(0, 0);
 
-        } completion:^(BOOL finished) {
-            
-        }];
- */
     }
     if (!_player2Humen) {
         _player2Humen = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, buttonWidth, buttonHeight)];
         [_container addSubview:_player2Humen];
         _player2Humen.titleLabel.font = FONT(15);
-        _player2Humen.center = CGPointMake(WINDOW_SIZE_WIDTH-xGap, firstRowHeight);
+        _player2Humen.center = CGPointMake(width-xGap, firstRowHeight);
         _player2Humen.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
         [_player2Humen addTarget:nil action:@selector(player2DidPressed:) forControlEvents:UIControlEventTouchUpInside];
         [_player2Humen setTitle:@"human" forState:UIControlStateNormal];
         [_player2Humen setTitleColor:Rgb2UIColor(176, 192, 206,1) forState:UIControlStateNormal];
- /*
-
-        _player2Humen.alpha = 0;
-        _player2Humen.transform = CGAffineTransformMakeTranslation(0, -10);
-
-        [UIView animateWithDuration:0.3 delay:0.2 options:0 animations:^{
-            _player2Humen.alpha = 1;
-            _player2Humen.transform = CGAffineTransformMakeTranslation(0, 0);
-
-        } completion:^(BOOL finished) {
-            
-        }];
-  */
 
     }
   
@@ -247,45 +244,20 @@
         [_player1Computer addTarget:nil action:@selector(player1DidPressed:) forControlEvents:UIControlEventTouchUpInside];
         [_player1Computer setTitle:@"computer" forState:UIControlStateNormal];
         [_player1Computer setTitleColor:Rgb2UIColor(176, 192, 206,1) forState:UIControlStateNormal];
- /*
 
-        _player1Computer.alpha = 0;
-        _player1Computer.transform = CGAffineTransformMakeTranslation(0, -10);
-
- 
-        [UIView animateWithDuration:0.3 delay:0.4 options:0 animations:^{
-            _player1Computer.alpha = 1;
-            _player1Computer.transform = CGAffineTransformMakeTranslation(0, 0);
-            
-        } completion:^(BOOL finished) {
-            
-        }];
-  */
 
     }
     
     if (!_player2Computer) {
         _player2Computer = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, buttonWidth, buttonHeight)];
         [_container addSubview:_player2Computer];
-        _player2Computer.center = CGPointMake(WINDOW_SIZE_WIDTH-xGap, seconedRowHeight);
+        _player2Computer.center = CGPointMake(width-xGap, seconedRowHeight);
         
         _player2Computer.titleLabel.font = FONT(15);
         _player2Computer.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
         [_player2Computer addTarget:nil action:@selector(player2DidPressed:) forControlEvents:UIControlEventTouchUpInside];
         [_player2Computer setTitle:@"computer" forState:UIControlStateNormal];
- /*
 
-        _player2Computer.alpha = 0;
-        _player2Computer.transform = CGAffineTransformMakeTranslation(0, -10);
-        
-        [UIView animateWithDuration:0.3 delay:0.4 options:0 animations:^{
-            _player2Computer.alpha = 1;
-            _player2Computer.transform = CGAffineTransformMakeTranslation(0, 0);
-            
-        } completion:^(BOOL finished) {
-            
-        }];
-  */
 
     }
     
@@ -321,11 +293,13 @@
 
 -(IBAction)player2DidPressed:(id)sender
 {
+    double const width = _container.frame.size.width;
+
     if (sender == _player2Humen) {
         NSLog(@"player 2 humen");
         [_player2Computer setTitleColor:Rgb2UIColor(176, 192, 206,1) forState:UIControlStateNormal];
         [_player2Humen setTitleColor:Rgb2UIColor(255, 255, 255,1) forState:UIControlStateNormal];
-        _circle.center = CGPointMake(WINDOW_SIZE_WIDTH  - 27.5, _player2Humen.center.y);
+        _circle.center = CGPointMake(width  - 27.5, _player2Humen.center.y);
         [self setValue:[NSNumber numberWithBool:YES] forKey:@"player2human"];
 
         
@@ -334,7 +308,7 @@
         NSLog(@"player 2 computer");
         [_player2Computer setTitleColor:Rgb2UIColor(255, 255, 255,1) forState:UIControlStateNormal];
         [_player2Humen setTitleColor:Rgb2UIColor(176, 192, 206,1) forState:UIControlStateNormal];
-        _circle.center = CGPointMake(WINDOW_SIZE_WIDTH - 27.5, _player2Computer.center.y);
+        _circle.center = CGPointMake(width - 27.5, _player2Computer.center.y);
         [self setValue:[NSNumber numberWithBool:NO] forKey:@"player2human"];
     }
 }
@@ -358,35 +332,25 @@
 
 -(void)initSquare
 {
+    
     _square = [[UILabel alloc] initWithFrame:CGRectMake(150, 150,(int) 15,15)];
     _square.layer.borderWidth = 2.5;
     _square.layer.borderColor = [UIColor redColor].CGColor;
     _square.layer.borderColor = Rgb2UIColor(95, 200, 235, 1).CGColor;
-    
     _square.center = CGPointMake(27.5, _player1Humen.center.y);
-    
     [_container addSubview:_square];
- /*
-    _square.transform = CGAffineTransformMakeScale(0.1, 0.1);
-    _square.alpha = 0;
-    
-    [UIView animateWithDuration:0.5 delay:0.7 usingSpringWithDamping:.4 initialSpringVelocity:1 options:0 animations:^{
-        _square.transform = CGAffineTransformMakeScale(1, 1);
-        _square.alpha = 1;
-        
-    } completion:^(BOOL finished) {
-        
-    }];
-  */
+
 }
 -(void)initCircle
 {
+    double const width = _container.frame.size.width;
+
     _circle = [[UILabel alloc] initWithFrame:CGRectMake(150, 150,(int) 16,16)];
     _circle.layer.borderWidth = 2.5;
     _circle.layer.borderColor = [UIColor redColor].CGColor;
     _circle.layer.borderColor = Rgb2UIColor(240, 166, 220, 1).CGColor;
     _circle.layer.cornerRadius = _circle.frame.size.height/2;
-    _circle.center = CGPointMake(WINDOW_SIZE_WIDTH - 27.5, _player2Computer.center.y);
+    _circle.center = CGPointMake(width - 27.5, _player2Computer.center.y);
 
     [_container addSubview:_circle];
     /*
@@ -420,8 +384,8 @@
     double const xGap = 20;
     double const labelheight = 25;
     double const labelWidth = 80;
+    double const width = _container.frame.size.width;
 
-    double const heightDrop = 20;
     if (!_player1Labal) {
         _player1Labal = [[UILabel alloc]initWithFrame:CGRectMake(xGap  , 0, labelWidth, labelheight)];
         _player1Labal.text = @"player 1";
@@ -432,7 +396,7 @@
     }
     
     if (!_player2Labal) {
-        _player2Labal = [[UILabel alloc]initWithFrame:CGRectMake(WINDOW_SIZE_WIDTH-xGap-labelWidth, 0, labelWidth, labelheight)];
+        _player2Labal = [[UILabel alloc]initWithFrame:CGRectMake(width-xGap-labelWidth, 0, labelWidth, labelheight)];
         _player2Labal.text = @"player 2";
         _player2Labal.font = FONT(13);
         _player2Labal.textAlignment = NSTextAlignmentRight;
@@ -442,7 +406,7 @@
     }
     if (!_vsLabel) {
         _vsLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, labelWidth, labelheight)];
-        _vsLabel.center = CGPointMake(WINDOW_SIZE_WIDTH/2, _headerContainer.frame.size.height/2);
+        _vsLabel.center = CGPointMake(width/2, _headerContainer.frame.size.height/2);
         _vsLabel.textAlignment = NSTextAlignmentCenter;
         _vsLabel.text = @"vs";
         _vsLabel.font = FONT(15);
@@ -465,18 +429,15 @@
 
 -(void)addDivider
 {
-    CGRect topDividerframe = CGRectMake(20, _headerContainer.frame.size.height , WINDOW_SIZE_WIDTH - 40, 1);
+    double const width = _container.frame.size.width;
+
+    CGRect topDividerframe = CGRectMake(20, _headerContainer.frame.size.height , width - 40, 1);
     
     self.divider = [[UILabel alloc]initWithFrame:topDividerframe];
-    self.divider.transform = CGAffineTransformMakeScale(0, 1);
+    self.divider.transform = CGAffineTransformMakeScale(1, 1);
     _divider.backgroundColor=  Rgb2UIColor(127,160,189,.5);
     [_headerContainer addSubview:_divider];
-    [UIView animateWithDuration:0
-                          delay:0
-                        options:UIViewAnimationOptionCurveEaseOut
-                     animations:^{
-                         self.divider.transform = CGAffineTransformMakeScale(1, 1);
-                     }   completion:^(BOOL finished) {  }];
+
 }
 
 -(void)buttonPress:(ButtomButton *)button
@@ -540,7 +501,7 @@
         
         [UIView animateWithDuration:0.6 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:0 animations:^{
             self.view.alpha = 0.9;
-            self.view.backgroundColor = Rgb2UIColor(21, 21, 22, 1);
+//            self.view.backgroundColor = Rgb2UIColor(21, 21, 22, 1);
 
             self.modal.view.frame = CGRectMake(0, WINDOW_SIZE_HEIGHT/2, 320, WINDOW_SIZE_HEIGHT);;
 

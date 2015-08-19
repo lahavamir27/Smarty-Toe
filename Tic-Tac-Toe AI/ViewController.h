@@ -14,14 +14,9 @@
 #import "NavigationBar.h"
 #import "Clock.h"
 #import "FirstViewController.h"
+#import "levelAlgorithm.h"
+#import "GameMode.h"
 
-
-enum{
-    xHumanOComputer = 0,
-    xHumanOHuman = 1,
-    xComputerOhuman = 2,
-};
-typedef NSUInteger TTTGameMode;
 
 enum{
     xTurn = 0,

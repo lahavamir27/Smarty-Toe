@@ -7,8 +7,7 @@
 //
 
 #import "Clock.h"
-#define Rgb2UIColor(r, g, b, a)  [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:(a)]
-#define FONT(a) [UIFont fontWithName:@"JosefinSans" size:(a)]
+
 #define CENTER_VIEW CGPointMake(self.frame.size.width/2, self.frame.size.height/2)
 #define CENTER_VIEW_LABEL CGPointMake(self.frame.size.width/2, self.frame.size.height/2+1)
 
@@ -22,7 +21,7 @@
 
 @property (nonatomic, strong) UILabel *seconedLbl;
 @property (nonatomic) NSTimer *countDownTimer;
-@property (strong,nonatomic) CAShapeLayer *redLine;
+@property (strong,nonatomic) CAShapeLayer *lightBlueLine;
 @property  (nonatomic,strong) CAShapeLayer *pathLayer;
 
 @end
@@ -36,8 +35,6 @@
     if (self)
     {
         seconedRemain = 9.9;
-   //     [self drewTimerBackgroundCircle];
-   //     [self initLabel];
     }
     return  self;
 }
@@ -47,7 +44,6 @@
     if (!_seconedLbl) {
         _seconedLbl =[[UILabel alloc]initWithFrame:CGRectMake(0,0, 17, 17)];
         _seconedLbl.center = CENTER_VIEW_LABEL;
-        _seconedLbl.font = FONT(13);
         _seconedLbl.textColor = [UIColor whiteColor];
         _seconedLbl.textAlignment = NSTextAlignmentCenter;
    //     [self addSubview:_seconedLbl];
@@ -57,6 +53,11 @@
         seconedRemain = 9.9;
         _seconedLbl.text = [NSString stringWithFormat:@"%d",(int)round(seconedRemain) ];
     }
+}
+
+-(void)resetSeconedRemaining
+{
+    seconedRemain = 9.9;
 }
 
 -(void) fireCountDownWithDelay
@@ -92,7 +93,6 @@
         
     }else{
         
-        NSLog(@" call finish clock");
         [_delegate clockDidFinish];
         [self resetTimer];
         
@@ -105,43 +105,33 @@
 
 -(void)resetTimer
 {
-    NSLog(@"reset timer");
     [_countDownTimer invalidate];
     _countDownTimer = nil;
-    [UIView animateWithDuration:0.5
-                     animations:^{
-        _redLine.opacity = 0;
-
-    } completion:^(BOOL finished)
-    {
-        [self initLabel];
-    }];
-    
+    _lightBlueLine.opacity = 0;
+    [self resetSeconedRemaining];
 
 }
 
 -(void)drewTimerLine
 {
-    //   NSLog(@"drew timer");
-    if (!self.redLine) {
-        self.redLine = [CAShapeLayer layer];
+    if (!self.lightBlueLine) {
+        self.lightBlueLine = [CAShapeLayer layer];
     }
     UIBezierPath *path = [UIBezierPath bezierPath];
     [path moveToPoint:CGPointMake(0, 0)];
     [path addLineToPoint:CGPointMake(self.frame.size.width, 0)];
-    _redLine.opacity = 1;
+    _lightBlueLine.opacity = 1;
     
     nextStep = 1-seconedRemain/10;
-    self.redLine.frame = self.bounds;
-    self.redLine.path = path.CGPath;
-    self.redLine.fillColor = [UIColor clearColor].CGColor;
-    self.redLine.strokeColor = Rgb2UIColor(95, 200, 235, 1).CGColor;
-    //  self.redLine.strokeColor = Rgb2UIColor(0, 0, 0, .7).CGColor;
-    self.redLine.lineWidth = 1.5f;
-    self.redLine.strokeStart = 0 ;
-    self.redLine.strokeEnd = nextStep;
-    self.redLine.lineJoin = kCALineCapRound;
-    [self.layer addSublayer:self.redLine];
+    self.lightBlueLine.frame = self.bounds;
+    self.lightBlueLine.path = path.CGPath;
+    self.lightBlueLine.fillColor = [UIColor clearColor].CGColor;
+    self.lightBlueLine.strokeColor = [UIColor lightBlue].CGColor;
+    self.lightBlueLine.lineWidth = 1.5f;
+    self.lightBlueLine.strokeStart = 0 ;
+    self.lightBlueLine.strokeEnd = nextStep;
+    self.lightBlueLine.lineJoin = kCALineCapRound;
+    [self.layer addSublayer:self.lightBlueLine];
     
     
     CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
@@ -150,7 +140,7 @@
     pathAnimation.toValue = [NSNumber numberWithFloat:nextStep];
     
     
-    [self.redLine addAnimation:pathAnimation forKey:@"strokeEnd"];
+    [self.lightBlueLine addAnimation:pathAnimation forKey:@"strokeEnd"];
     
     step = nextStep;
     
@@ -169,7 +159,6 @@
     _pathLayer.path = path.CGPath;
     _pathLayer.strokeColor = [UIColor colorWithRed:0/255.5 green:171/255.0 blue:156/255.0 alpha:.54].CGColor;
     _pathLayer.fillColor = [UIColor clearColor].CGColor;
-    _pathLayer.strokeColor = Rgb2UIColor(176, 192, 206,1).CGColor;
     _pathLayer.lineWidth = 1.0f;
     _pathLayer.lineJoin = kCALineJoinBevel;
     [self.layer addSublayer:_pathLayer];

@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import <Parse/Parse.h>
+
 #define GOLDEN_RATIO 0.618
 #define WIDTH_RATIO 0.8
 #define Rgb2UIColor(r, g, b, a)  [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:(a)]
@@ -14,7 +16,7 @@
 #define WINDOW_SIZE_HEIGHT  self.view.frame.size.height
 #define WINDOW_SIZE_WIDTH  self.view.frame.size.width
 #define HEIGHT 68
-
+#define BACKGROUND_COLOR_BRIGHT   Rgb2UIColor(125, 89, 200, 1)
 #define FONT_BOLD(a) [UIFont fontWithName:@"JosefinSans-Bold" size:(a)]
 
 
@@ -35,12 +37,16 @@
 @property (nonatomic) BOOL isPlayerFinishMove;
 @property (nonatomic) BOOL timeEnd;
 @property (nonatomic) BOOL pause;
+@property (nonatomic,strong) gameScoreState *state;
+@property (nonatomic,strong) levelAlgorithm *levelManager;
 
 
 @property (nonatomic,strong) NSUserDefaults *defaults;
 @property (nonatomic, setter=isGameStart:) BOOL gameStart;
 @property (nonatomic) NSInteger level;
-@property (nonatomic) NSInteger score;
+@property (nonatomic) NSInteger wins;
+@property (nonatomic) NSInteger draw;
+@property (nonatomic) NSInteger lost;
 
 
 
@@ -51,7 +57,39 @@
 
 #pragma mark -  life cycle
 
+-(void)saveDataToCluod
+{
 
+    PFObject *gameState = [PFObject objectWithClassName:@"game"];
+    gameState[@"wins"] = [NSNumber numberWithInteger:[_state getWin]];
+    gameState[@"losts"] = [NSNumber numberWithInteger:[_state getLost]];
+    gameState[@"drew"] = [NSNumber numberWithInteger:[_state getDraw]];
+    gameState[@"gameMode"] = [GameMode convertGameModeToString:_gameMode];
+    gameState[@"device"] = [[UIDevice currentDevice] name];
+    gameState[@"level"] = [_levelManager convertLevelToString:_level];
+
+    [gameState addObject:[PFUser currentUser] forKey:@"player"];
+    
+    if ([_state getWin] != 0 || [_state getLost] != 0 || [_state getDraw] !=0 ) {
+        [gameState saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+         {
+             if (!error)
+             {
+                 NSLog(@"save");
+             }
+             else
+             {
+                 NSLog(@"%@",[error description]);
+             }
+             
+         }
+         ];
+    }else
+    {
+        NSLog(@"no need to save");
+    }
+}
+        
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -68,8 +106,14 @@
      object:nil];
     
     _defaults = [NSUserDefaults standardUserDefaults];
-
     _level = [[_defaults objectForKey:@"level"] integerValue];
+    
+    if (!_state) {
+        _state = [[gameScoreState alloc]init];
+    }
+    if (!_levelManager) {
+        _levelManager = [[levelAlgorithm alloc]init];
+    }
     
     // Do any additional setup after loading the view, typically from a nib.
     
@@ -254,56 +298,86 @@
     }
 }
 
-
+-(void)updateState:(TTTPlayerType)winner
+{
+    if (xHumanOComputer == _gameMode) {
+        switch (winner) {
+            case -1:
+                [_state addLost];
+                break;
+                
+            case 0:
+                [_state addDraw];
+                break;
+                
+            case 1:
+                [_state addWin];
+                break;
+                
+            default:
+                break;
+        }
+    }
+    
+    if (xComputerOhuman == _gameMode) {
+        switch (winner) {
+            case -1:
+                [_state addWin];
+                break;
+                
+            case 0:
+                [_state addDraw];
+                break;
+                
+            case 1:
+                [_state addLost];
+                break;
+                
+            default:
+                break;
+        }
+    }
+    [_state printState];
+}
 
 -(void)isGameHaveWinner
 {
-    NSLog(@"the winner is %ld",(long)[_boardModel winner]);
     
     if ([_boardModel winner] != 0 || [_boardModel isGameComplete]) {
         [_navBar setMainTitleText:@""];
-        [_navBar addAlert:@"GAME OVER - TIE."];
-
+        [_navBar addAlert:@"GAME OVER - DRAW."];
         [_clock resetTimer];
         [self endGameAnimation];
+        [self updateState:[_boardModel winner]];
+        [self updateLevel];
     }
     switch ([_boardModel winner]) {
         case -1:
             [_player2 addWinning];
-            [_navBar setMainTitleText:@""];
             [_navBar addAlert:@"CIRCLE WIN!"];
-
             [_scoreBoard setScoreForPlayerO:[_player2 getScroe]];
-            
-            [self countWinningGames];
             [_clock resetTimer];
+            [self updateLevel];
             break;
             
         case 1:
             [_player1 addWinning];
-            [_navBar setMainTitleText:@""];
             [_navBar addAlert:@"SQUARE WIN!"];
             [_scoreBoard setScoreForPlayerX:[_player1 getScroe]];
-            [self countWinningGames];
             [_clock resetTimer];
-
+            [self updateLevel];
             break;
+        
             
         default:
 
             break;
     }
     
+    
 }
 
--(void)endGameAnimation
-{
-    [_scoreBoard endGameAnimationUp];
-    [_boardUI endGameAnimationUp];
-    [_resetGameButton endGameAnimationUpWithDepth:44];
-    _pause = YES;
 
-}
 
 -(void)humanPlaceMoveAtIndex:(NSInteger)index
 {
@@ -341,96 +415,40 @@
     }
 }
 
--(void)addScoreToPlayer
+
+
+
+-(void)updateLevel
 {
-    if (_gameMode == xComputerOhuman)
-    {
-            [_player1 addWinning];
-            [_scoreBoard setScoreForPlayerX:[_player1 getScroe]];
-            [_navBar setMainTitleText:@"SQUARE WIN!"];
-
-        
-    }
-    
-    if (_gameMode == xHumanOComputer)
-    {
-            [_player2 addWinning];
-            [_scoreBoard setScoreForPlayerO:[_player2 getScroe]];
-            [_navBar setMainTitleText:@"CIRCLE WIN!"];
-        
-
-    }
-    if (_gameMode == xHumanOHuman) {
-        if (_playerTurn == xTurn) {
-            [_player1 addWinning];
-            [_scoreBoard setScoreForPlayerX:[_player1 getScroe]];
-            [_navBar setMainTitleText:@"SQUARE WIN!"];
-        }else
+        long tempLevel = [levelAlgorithm getLevelWithState:_state andLevel:_level];
+        if(_level != tempLevel)
         {
-            [_player2 addWinning];
-            [_scoreBoard setScoreForPlayerO:[_player2 getScroe]];
-            [_navBar setMainTitleText:@"CIRCLE WIN!"];
-        }
-    }
+            NSString *str = [_levelManager convertLevelToString:tempLevel];
+            if (_level < tempLevel )
+            {
+                NSLog(@"good");
+                [self levelAlert:[NSString stringWithFormat:@"level up, %@ AI",str]];
+            }else
+            {
+                NSLog(@"sorry");
 
-}
--(void)countWinningGames
-{
-    if (_gameMode == xComputerOhuman && [_boardModel winner]== -1)
-    {
-        _score ++;
-        long temp = [Level getLevelWithNumOfWins:_score andLevel:_level];
-        if(_level<temp)
-        {
-            _level = temp;
+                [self levelAlert:[NSString stringWithFormat:@"level down, %@ AI",str]];
+
+            }
+            _level = tempLevel;
             NSNumber *level = [NSNumber numberWithDouble:_level];
             [_defaults setObject:level forKey:@"level"];
-            [self levelAlert];
-            _score = 0;
+            [_state resetState];
         }
         [self updateLevelTitle];
-    }
     
-    if (_gameMode == xHumanOComputer && [_boardModel winner]== 1)
-    {
-        _score ++;
-        long temp = [Level getLevelWithNumOfWins:_score andLevel:_level];;
-        if(_level<temp)
-        {
-            _level = temp;
-            NSNumber *level = [NSNumber numberWithDouble:_level];
-            [_defaults setObject:level forKey:@"level"];
-            [self levelAlert];
-            _score = 0;
-        }
-        [self updateLevelTitle];
-        NSLog(@"level is %ld",(long)_level);
-    }
+
 
 }
 
--(void)updateLevelTitle
-{
-    [_navBar setLevelTitleWithLevel:_level];
-}
 
-- (void)levelAlert
-{
-    switch (_level) {
-        case meduim:
-            [_navBar setMainTitleText:@"Level up!, medium AI"];
-            break;
-        case hard:
-            [_navBar setMainTitleText:@"Level up!, hard AI"];
-            break;
-        case imposible:
-            [_navBar setMainTitleText:@"Level up!, imposible AI"];
-            break;
-            
-        default:
-            break;
-    }
-}
+
+
 
 
 #pragma mark -  delegate UI methods
@@ -455,8 +473,7 @@
     _timeEnd = YES;
     [_navBar addAlert:@"Time's up! You lost the GAME"];
     [self endGameAnimation];
-    [self addScoreToPlayer];
-    NSLog(@"clock finish");
+    [self updateScoreUI];
 }
 
 #pragma mark -  delegate data source methods
@@ -467,6 +484,96 @@
 }
 
 
+#pragma mark -  animation
+
+
+-(void)endGameAnimation
+{
+    [_scoreBoard endGameAnimationUp];
+    [_boardUI endGameAnimationUp];
+    [_resetGameButton endGameAnimationUpWithDepth:44];
+    _pause = YES;
+    
+}
+
+-(void)fadeoutViewController
+{
+    if (!_pause) {
+        [_scoreBoard endGameAnimationDownWithDepth:70];
+        [_navBar fadeoutAnimation];
+    }else
+    {
+        [_scoreBoard endGameAnimationDownWithDepth:114];
+        [_navBar fadeoutAnimationWithDepth:100];
+        
+    }
+    [_resetGameButton newGameAnimationDown];
+    
+    [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        _boardUI.alpha = 0;
+        _boardUI.transform = CGAffineTransformMakeScale(1.4, 1.4);
+        
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+
+
+#pragma mark -  update UI
+
+- (void)levelAlert:(NSString*)str
+{
+    [_navBar setMainTitleText:str];
+}
+
+-(void)updateLevelTitle
+{
+    if (_gameMode != xHumanOHuman) {
+        [_navBar setLevelTitleWithLevel:_level];
+    }
+}
+
+
+-(void)updateScoreUI
+{
+    if (_gameMode == xComputerOhuman)
+    {
+        [_player1 addWinning];
+        [_scoreBoard setScoreForPlayerX:[_player1 getScroe]];
+        [_navBar setMainTitleText:@"SQUARE WIN!"];
+        }
+    
+    if (_gameMode == xHumanOComputer)
+    {
+        [_player2 addWinning];
+        [_scoreBoard setScoreForPlayerO:[_player2 getScroe]];
+        [_navBar setMainTitleText:@"CIRCLE WIN!"];
+    }
+    if (_gameMode == xHumanOHuman) {
+        if (_playerTurn == xTurn) {
+            [_player1 addWinning];
+            [_scoreBoard setScoreForPlayerX:[_player1 getScroe]];
+            [_navBar setMainTitleText:@"SQUARE WIN!"];
+        }else
+        {
+            [_player2 addWinning];
+            [_scoreBoard setScoreForPlayerO:[_player2 getScroe]];
+            [_navBar setMainTitleText:@"CIRCLE WIN!"];
+        }
+    }
+    
+}
+
+-(void)updateTitle
+{
+    if (_playerTurn == oTurn || _gameMode == xComputerOhuman) {
+        [_navBar setMainTitleText:@"CIRCLE turn."];
+    }else
+    {
+        [_navBar setMainTitleText:@"SQUARE turn."];
+        
+    }
+}
 
 #pragma mark -  action
 
@@ -475,10 +582,8 @@
     [_clock resetTimer];
     switch (gameMode) {
         case 0:
-            NSLog(@"human: X computer: O");
             [self humanPlaceMoveAtIndex:index];
             [_clock resetTimer];
-            NSLog(@"finish Move: %d",_isPlayerFinishMove);
             if (_isPlayerFinishMove)
             {
                 [self getComputerBestMove:boardMarkO andBoard:_boardModel];
@@ -489,7 +594,6 @@
             break;
             
         case 1:
-            NSLog(@"human: X human: O");
 
             [self humanPlaceMoveAtIndex:index];
             [_clock resetTimer];
@@ -499,8 +603,6 @@
             break;
             
         case 2:
-            NSLog(@"computer: X human: O");
-            
             [self humanPlaceMoveAtIndex:index];
             if (_isPlayerFinishMove)
             {
@@ -519,16 +621,7 @@
             break;
     }
 }
--(void)updateTitle
-{
-    if (_playerTurn == oTurn || _gameMode == xComputerOhuman) {
-        [_navBar setMainTitleText:@"CIRCLE turn."];
-    }else
-    {
-        [_navBar setMainTitleText:@"SQUARE turn."];
 
-    }
-}
 -(void)buttonPress:(ButtomButton *)button
 {
     NSLog(@"button Pressed");
@@ -536,41 +629,14 @@
     _pause = NO;
 }
 
--(void)fadeoutViewController
-{
-    if (!_pause) {
-        [_scoreBoard endGameAnimationDownWithDepth:70];
-        [_navBar fadeoutAnimation];
-    }else
-    {
-        [_scoreBoard endGameAnimationDownWithDepth:114];
-        [_navBar fadeoutAnimationWithDepth:100];
-
-    }
-    [_resetGameButton newGameAnimationDown];
-
-    [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        _boardUI.alpha = 0;
-        _boardUI.transform = CGAffineTransformMakeScale(1.4, 1.4);
-
-    } completion:^(BOOL finished) {
-        
-    }];
-    /*
-    [UIView animateWithDuration:.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        _boardUI.transform = CGAffineTransformMakeScale(1.2, 1.2);
-        _boardUI.alpha = 0;
-    } completion:^(BOOL finished) {
-        _boardUI = nil;
-    }];
-     */
-}
 
 -(void)backButtonPressed
 {
+    
     [_clock resetTimer];
+    [self saveDataToCluod];
     [self fadeoutViewController];
-    [self performSelector:@selector(exitViewController) withObject:nil afterDelay:0.4];
+    [self performSelector:@selector(exitViewController) withObject:nil afterDelay:0.35];
     
 }
 
@@ -580,9 +646,5 @@
 
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    
-}
 
 @end

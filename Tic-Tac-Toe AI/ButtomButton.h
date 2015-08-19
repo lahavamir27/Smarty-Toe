@@ -24,9 +24,11 @@
 -(void)setTitle:(NSString*)str;
 -(void)endGameAnimationUpWithDepth:(NSInteger)depth;
 -(void)newGameAnimationDown;
--(void)disableButton;
--(void)enableButton;
+
 -(void)fixButtonSize;
+-(void)setButtomButtonColor:(UIColor*)color withAnimation:(BOOL)animation;
+-(void)addDivider;
+
 @end
 
 

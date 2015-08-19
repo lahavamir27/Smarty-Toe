@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Level.h"
+#import "levelAlgorithm.h"
 #import "PlayerType.h"
 
 enum {

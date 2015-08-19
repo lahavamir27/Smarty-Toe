@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "UIColor+ExtendedColorScheme.h"
 @interface GameCellUI : UICollectionViewCell
 
 -(instancetype)initWithFrame:(CGRect)frame;
@@ -15,7 +15,7 @@
 -(NSString*)getLableTitle;
 -(void)setLabelCenter:(CGPoint)center;
 -(void)colorPink;
--(void)colorWhite;
+-(void)setSqureColorBlue;
 -(void)addLabel;
 -(void)removeLabel;
 

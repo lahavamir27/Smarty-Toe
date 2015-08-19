@@ -10,6 +10,8 @@
 #import "GameCellUI.h"
 #import "Board.h"
 #import "GridLines.h"
+#import "UIColor+ExtendedColorScheme.h"
+
 
 @class GameBoardUI ;
 

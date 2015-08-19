@@ -48,7 +48,6 @@
     self = [super initWithFrame:frame];
     if (self) {
        
-        self.backgroundColor = Rgb2UIColor(250  , 250, 250, 0);
         [self setupUI];
         
     }
@@ -68,23 +67,30 @@
 
 -(void)addSquare
 {
-    _square = [[UILabel alloc] initWithFrame:CGRectMake(15, 30,(int) 25,25)];
+    double const gap = 15;
+    double const kYgap = 30;
+    double const squareSize = 25;
+    
+    _square = [[UILabel alloc] initWithFrame:CGRectMake(gap, kYgap,(int) squareSize,squareSize)];
     _square.textColor = [UIColor clearColor];
     _square.layer.borderWidth = 5;
     _square.layer.borderColor = [UIColor redColor].CGColor;
-    _square.layer.borderColor = Rgb2UIColor(95, 200, 235, 1).CGColor;
+    _square.layer.borderColor = [UIColor lightBlue].CGColor;
 
     [self addSubview:_square];
 }
 
 -(void)addCircle
 {
-    _circle = [[UILabel alloc] initWithFrame:CGRectMake(WINDOW_SIZE_WIDTH-15-25, 30,(int) 25,25)];
-
+    double const gap = 15;
+    double const kYgap = 30;
+    double const circleSize = 25;
+    
+    _circle = [[UILabel alloc] initWithFrame:CGRectMake(WINDOW_SIZE_WIDTH-gap-circleSize, kYgap,(int) circleSize,circleSize)];
     _circle.textColor = [UIColor clearColor];
     _circle.layer.borderWidth = 5;
     _circle.layer.cornerRadius = _circle.frame.size.height/2;;
-    _circle.layer.borderColor = Rgb2UIColor(240, 166, 220, 1).CGColor;
+    _circle.layer.borderColor = [UIColor lightPink].CGColor;
     [self addSubview:_circle];
 }
 
@@ -107,9 +113,16 @@
 
 -(void)addScores
 {
+    double const gap = 55;
+    double const gapRight = 105;
+    double const kYgap = 30;
+    double const lableSizeWidth = 50;
+    double const lableSizeHeight = 40;
+
+    
     if (!_playerXScore) {
-        _playerXScore = [[UILabel alloc]initWithFrame:CGRectMake(55, 30, 50, 40)];
-        _playerOScore = [[UILabel alloc]initWithFrame:CGRectMake(WINDOW_SIZE_WIDTH-105, 30, 50, 40)];
+        _playerXScore = [[UILabel alloc]initWithFrame:CGRectMake(gap, kYgap, lableSizeWidth, lableSizeHeight)];
+        _playerOScore = [[UILabel alloc]initWithFrame:CGRectMake(WINDOW_SIZE_WIDTH-gapRight, kYgap, lableSizeWidth, lableSizeHeight)];
         _playerXScore.textAlignment = NSTextAlignmentLeft;
         _playerOScore.textAlignment = NSTextAlignmentRight;
         _playerXScore.text = @"0";
@@ -130,17 +143,17 @@
 
 -(void)addPlayersNames
 {
-    
-    int labelSizeX = 50;
-    int labelSizeY = 20;
-    int yAxies = 15;
-    int gap = 100 ;
-    int halfScreenSize = self.frame.size.width/2;
+   
+    double const gap = 55;
+    double const gapRight = 155;
+    double const kYgap = 20;
+    double const lableSizeWidth = 100;
+    double const lableSizeHeight = 15;
     
     if (!_playerXName)
     {
-        _playerXName = [[UILabel alloc]initWithFrame:CGRectMake(55, 20, 100, 15)];
-        _playerOName = [[UILabel alloc]initWithFrame: CGRectMake(WINDOW_SIZE_WIDTH-155, 20, 100, 15)];
+        _playerXName = [[UILabel alloc]initWithFrame:CGRectMake(gap, kYgap, lableSizeWidth, lableSizeHeight)];
+        _playerOName = [[UILabel alloc]initWithFrame: CGRectMake(WINDOW_SIZE_WIDTH-gapRight, kYgap, lableSizeWidth, lableSizeHeight)];
                        
         
         _playerXName.textAlignment = NSTextAlignmentLeft;
@@ -154,13 +167,7 @@
         
         _playerXName.text = @"Player 1";
         _playerOName.text = @"Player 2";
-        
-
-
-        int x = _playerXName.frame.size.width;
-        // fix player 1 postion
-
-        
+               
         [self addSubview:_playerXName];
         [self addSubview:_playerOName];
         
@@ -200,31 +207,11 @@
     _playerXName.text = playerX;
     _playerOName.text = playerO;
     
-   // [_playerXName sizeToFit];
-  //  [_playerOName sizeToFit];
-    
     CGFloat centerX= _playerOScore.center.x;
-//    _playerOName.center  = CGPointMake(centerX, _playerOName.center.y) ;
-    
     centerX= _playerXScore.center.x;
-//    _playerXName.center  = CGPointMake(centerX, _playerXName.center.y) ;
 
 }
 
--(void)addDivider
-{
-    CGRect topDividerframe = CGRectMake(0, 0, 320, 1);
-    self.divider = [[UILabel alloc]initWithFrame:topDividerframe];
-    self.divider.transform = CGAffineTransformMakeScale(0, 1);
-    _divider.backgroundColor= Rgb2UIColor(231, 231, 231, 1);
- //   [self addSubview:_divider];
-    [UIView animateWithDuration:0.1
-                          delay:0
-                        options:UIViewAnimationOptionCurveEaseOut
-                     animations:^{
-                         self.divider.transform = CGAffineTransformMakeScale(1, 1);
-                     }   completion:^(BOOL finished) {  }];
-}
 
 -(void)fadeInAnimation
 {
@@ -235,7 +222,6 @@
         self.alpha = 1;
 
     } completion:^(BOOL finished) {
-        [self addDivider];
     }];
 }
 

@@ -8,9 +8,6 @@
 
 #import "GameBoardUI.h"
 #define GOLDEN_RATIO 0.50
-#define Rgb2UIColor(r, g, b, a)  [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:(a)]
-#define GREY_COLOR   Rgb2UIColor(101,101,101,1)
-#define BACKGROUND_COLOR   Rgb2UIColor(36, 41, 47, 1)
 #define GAME_SIZE  self.frame.size.width*.70
 #define GRID_SIZE  self.frame.size.width*.70/3+1
 
@@ -46,7 +43,7 @@
     
     UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc] init];
     _gameBoardUI=[[UICollectionView alloc] initWithFrame:CGRectMake(0, 0,(int) GAME_SIZE,(int) GAME_SIZE) collectionViewLayout:layout];
-    
+    _gameBoardUI.scrollEnabled = NO;
     layout.minimumInteritemSpacing = 0;
     layout.minimumLineSpacing = 0.1;
     
@@ -126,7 +123,7 @@
     }else if ([_boardArray[indexPath.row] integerValue]==1)
     {
         [cell addLabel];
-        [cell colorWhite];
+        [cell setSqureColorBlue];
         [cell setLabelCenter:CGPointMake((GAME_SIZE)/6,(GAME_SIZE)/6)];
 
         

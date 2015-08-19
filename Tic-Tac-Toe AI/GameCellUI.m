@@ -9,7 +9,6 @@
 #import "GameCellUI.h"
 
 
-#define FONT_REGULAR(a) [UIFont fontWithName:@"JosefinSans-Bold" size:(a)]
 #define Rgb2UIColor(r, g, b, a)  [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:(a)]
 
 @interface GameCellUI()
@@ -40,7 +39,6 @@
     double const ratio = 0.618;
     _lbl = [[UILabel alloc] initWithFrame: CGRectMake(0, 0,(int) size*ratio,(int) size*ratio)];
     _lbl.textColor = [UIColor clearColor];
-    _lbl.font = FONT_REGULAR(100);
     _lbl.textAlignment = NSTextAlignmentCenter;
     _lbl.layer.borderWidth = 8;
     _lbl.layer.borderColor = [UIColor clearColor].CGColor;
@@ -71,7 +69,7 @@
 {
     _lbl.layer.cornerRadius = _lbl.frame.size.height/2;;
 
-    _lbl.layer.borderColor = Rgb2UIColor(240, 166, 220, 1).CGColor;
+    _lbl.layer.borderColor = [UIColor lightPink].CGColor;
     _lbl.alpha = 0;
     _lbl.transform = CGAffineTransformMakeScale(0.1, 0.1);
     
@@ -83,9 +81,9 @@
     }];
 }
 
--(void)colorWhite
+-(void)setSqureColorBlue
 {
-    _lbl.layer.borderColor = Rgb2UIColor(95, 200, 235, 1).CGColor;
+    _lbl.layer.borderColor = [UIColor lightBlue].CGColor;
     _lbl.alpha = 0;
     _lbl.transform = CGAffineTransformMakeScale(0.1, 0.1);
     _lbl.layer.cornerRadius = 0;
