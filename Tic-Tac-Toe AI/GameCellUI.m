@@ -35,12 +35,11 @@
 -(void)addLabel
 {
     CGFloat size =   self.frame.size.width;
-    NSLog(@"%f",size);
     double const ratio = 0.618;
     _lbl = [[UILabel alloc] initWithFrame: CGRectMake(0, 0,(int) size*ratio,(int) size*ratio)];
     _lbl.textColor = [UIColor clearColor];
     _lbl.textAlignment = NSTextAlignmentCenter;
-    _lbl.layer.borderWidth = 8;
+    _lbl.layer.borderWidth = 8.0f;
     _lbl.layer.borderColor = [UIColor clearColor].CGColor;
     
     [self addSubview:_lbl];
@@ -65,7 +64,7 @@
     _lbl.center = center;
 }
 
--(void)colorPink
+-(void)setCircleWIthColor
 {
     _lbl.layer.cornerRadius = _lbl.frame.size.height/2;;
 
@@ -73,24 +72,37 @@
     _lbl.alpha = 0;
     _lbl.transform = CGAffineTransformMakeScale(0.1, 0.1);
     
-    [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+    [UIView animateWithDuration:0.6 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionAllowUserInteraction animations:^{
         _lbl.alpha = 1;
         _lbl.transform = CGAffineTransformMakeScale(1, 1);
     } completion:^(BOOL finished) {
         
     }];
+    [UIView animateWithDuration:0.27 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+
+    } completion:^(BOOL finished) {
+        
+    }];
 }
 
--(void)setSqureColorBlue
+-(void)setSqureWithColor
 {
     _lbl.layer.borderColor = [UIColor lightBlue].CGColor;
     _lbl.alpha = 0;
     _lbl.transform = CGAffineTransformMakeScale(0.1, 0.1);
-    _lbl.layer.cornerRadius = 0;
+    _lbl.layer.cornerRadius = 2;
+    _lbl.backgroundColor = [UIColor backgrounDarkBlue];
 
-    [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+    
+    [UIView animateWithDuration:0.27 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+
+    } completion:^(BOOL finished) {
+        
+    }];
+    [UIView animateWithDuration:0.6 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionAllowUserInteraction animations:^{
         _lbl.alpha = 1;
         _lbl.transform = CGAffineTransformMakeScale(1, 1);
+        
     } completion:^(BOOL finished) {
         
     }];

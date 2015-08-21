@@ -27,5 +27,8 @@
 {
     return  Rgb2UIColor(127,160,189,.5);
 }
-
++(UIColor*)lightBlueTextColor
+{
+    return Rgb2UIColor(176, 192, 206,1);
+}
 @end

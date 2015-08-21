@@ -73,7 +73,6 @@
 }
 -(void)delegateButtonPress
 {
-    NSLog(@"button Pressed");
         [_delegate buttonPress:self];
 }
 

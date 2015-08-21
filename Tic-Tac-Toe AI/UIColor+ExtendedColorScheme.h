@@ -14,5 +14,6 @@
 +(UIColor*)lightBlue;
 +(UIColor*)lightPink;
 +(UIColor*)dividerColorBlue;
++(UIColor*)lightBlueTextColor;
 
 @end

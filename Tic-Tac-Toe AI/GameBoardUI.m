@@ -9,7 +9,7 @@
 #import "GameBoardUI.h"
 #define GOLDEN_RATIO 0.50
 #define GAME_SIZE  self.frame.size.width*.70
-#define GRID_SIZE  self.frame.size.width*.70/3+1
+#define IPAD UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
 
 @interface GameBoardUI() <UICollectionViewDataSource,UICollectionViewDelegate>
 
@@ -30,7 +30,6 @@
         [self showGrid];
         [self createGameBoardUI];
         if (dataSource) _dataSource = dataSource;
-        NSLog(@"%f",self.frame.size.width);
     }
     return  self;
 }
@@ -112,22 +111,22 @@
     cell.backgroundColor=[UIColor clearColor];
     
     [cell removeLabel];
-    
+   
     if ([_boardArray[indexPath.row] integerValue] == -1)
     {
         [cell addLabel];
-        [cell colorPink];
+        [cell setCircleWIthColor];
         [cell setLabelCenter:CGPointMake((GAME_SIZE)/6,(GAME_SIZE)/6)];
 
         
     }else if ([_boardArray[indexPath.row] integerValue]==1)
     {
         [cell addLabel];
-        [cell setSqureColorBlue];
+        [cell setSqureWithColor];
         [cell setLabelCenter:CGPointMake((GAME_SIZE)/6,(GAME_SIZE)/6)];
 
-        
 
+        
     }
     
     return cell;
@@ -167,17 +166,19 @@
 
 -(void)endGameAnimationUp
 {
+    double const offset = -24;
     [UIView animateWithDuration:0.52 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:0 animations:^{
-        _grid.transform =CGAffineTransformMakeTranslation(0, -24);
-        _gameBoardUI.transform =CGAffineTransformMakeTranslation(0, -24);
+        _grid.transform =CGAffineTransformMakeTranslation(0, offset);
+        _gameBoardUI.transform =CGAffineTransformMakeTranslation(0, offset);
 
     } completion:^(BOOL finished) {
         
-    }];
+
+   }];
 }
 -(void)newGameAnimationDown
 {
-    [UIView animateWithDuration:0.52 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:0 animations:^{
+    [UIView animateWithDuration:0.52 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionAllowUserInteraction animations:^{
         _grid.transform =CGAffineTransformMakeTranslation(0, 0);
         _gameBoardUI.transform =CGAffineTransformMakeTranslation(0, 0);
 
@@ -189,7 +190,7 @@
 {
     _grid.transform = CGAffineTransformMakeScale(0.7, 0.7);
     _grid.alpha = 0;
-    [UIView animateWithDuration:0.5 delay:0.1 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+    [UIView animateWithDuration:0.4 delay:0.1 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionAllowUserInteraction animations:^{
         _grid.transform = CGAffineTransformMakeScale(1, 1);
         _grid.alpha = 1;
         
@@ -206,6 +207,7 @@
     NSArray *indexPathArr = [NSArray arrayWithObjects:indexPath, nil];
     [_gameBoardUI reloadItemsAtIndexPaths:indexPathArr];
 }
+
 
 
 @end

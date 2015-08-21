@@ -98,10 +98,8 @@
 {
     if (!_twoDots) {
         
-        NSLog(@"%f width",WINDOW_SIZE_WIDTH);
         _twoDots = [[UILabel alloc]initWithFrame:CGRectMake(WINDOW_SIZE_WIDTH/2-15, 28, 30, 30)];
    //     _twoDots.center = CGPointMake(WINDOW_SIZE_WIDTH/2, 20);
-        NSLog(@"two dots");
         [self addSubview:_twoDots];
         _twoDots.text = @":";
         _twoDots.textColor = LIGHT_GREY_COLOR;
@@ -215,7 +213,7 @@
 
 -(void)fadeInAnimation
 {
-    self.transform =CGAffineTransformMakeTranslation(0, 44);
+    self.transform =CGAffineTransformMakeTranslation(0, 60);
     self.alpha = 0;
     [UIView animateWithDuration:.7 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:0 animations:^{
         self.transform =CGAffineTransformMakeTranslation(0, 0);
@@ -228,7 +226,7 @@
 -(void)endGameAnimationUp
 {
     [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:5 options:0 animations:^{
-        self.transform =CGAffineTransformMakeTranslation(0, -44);
+        self.transform =CGAffineTransformMakeTranslation(0, -60);
         
     } completion:^(BOOL finished) {
         

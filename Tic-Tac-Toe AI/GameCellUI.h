@@ -14,8 +14,8 @@
 -(void)setLabelTitle:(NSString*)str;
 -(NSString*)getLableTitle;
 -(void)setLabelCenter:(CGPoint)center;
--(void)colorPink;
--(void)setSqureColorBlue;
+-(void)setCircleWIthColor;
+-(void)setSqureWithColor;
 -(void)addLabel;
 -(void)removeLabel;
 

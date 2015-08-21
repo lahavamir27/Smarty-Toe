@@ -13,7 +13,7 @@
 #import "ButtomButton.h"
 #import "NavigationBar.h"
 #import "Clock.h"
-#import "FirstViewController.h"
+#import "StartViewController.h"
 #import "levelAlgorithm.h"
 #import "GameMode.h"
 
@@ -24,7 +24,7 @@ enum{
 };
 typedef NSUInteger TTTturn;
 
-@interface ViewController : UIViewController
+@interface GameViewController : UIViewController
 
 @property (nonatomic) TTTGameMode gameMode;
 

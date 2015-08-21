@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "UIColor+ExtendedColorScheme.h"
 @class NavigationBar;
 
 

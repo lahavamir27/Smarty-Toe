@@ -31,19 +31,16 @@
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
     if ([PFUser currentUser]) {
-        NSLog(@"all ready signed in");
+
         [[PFUser currentUser] incrementKey:@"RunCount"];
         [[PFUser currentUser] saveInBackground];
-        
         
     }else {
         
         [PFUser enableAutomaticUser];
         [[PFUser currentUser] incrementKey:@"RunCount"];
         [[PFUser currentUser] saveInBackground];
-        NSLog(@"first log");
-        
-        
+
     }
     
     

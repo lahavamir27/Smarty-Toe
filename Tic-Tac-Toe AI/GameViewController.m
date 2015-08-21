@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 amir lahav. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "GameViewController.h"
 #import <Parse/Parse.h>
 
 #define GOLDEN_RATIO 0.618
@@ -20,7 +20,7 @@
 #define FONT_BOLD(a) [UIFont fontWithName:@"JosefinSans-Bold" size:(a)]
 
 
-@interface ViewController () <GameBoardUIDataSource,GameBoardUIDelegate,ButtomButtonDelegate,ClockDelegate,NavigationBarDelegate>
+@interface GameViewController () <GameBoardUIDataSource,GameBoardUIDelegate,ButtomButtonDelegate,ClockDelegate,NavigationBarDelegate>
 
 @property (nonatomic,strong) UICollectionView *gameBoardUI;
 @property (nonatomic) NSInteger playerTurn;
@@ -53,7 +53,7 @@
 
 @end
 
-@implementation ViewController
+@implementation GameViewController
 
 #pragma mark -  life cycle
 
@@ -75,18 +75,18 @@
          {
              if (!error)
              {
-                 NSLog(@"save");
+                 
              }
              else
              {
-                 NSLog(@"%@",[error description]);
+                 
              }
              
          }
          ];
     }else
     {
-        NSLog(@"no need to save");
+        
     }
 }
         
@@ -96,7 +96,6 @@
     [self.view setBackgroundColor:BACKGROUND_COLOR];
     [self initBoardModel];
     [self initPlayersWithGameMode:_gameMode];
-    NSLog(@"o turn is %d",oTurn);
     _gameStart = NO;
     
     [[NSNotificationCenter defaultCenter]
@@ -151,9 +150,8 @@
     NSArray *fontFamilies = [UIFont familyNames];
     for (int i = 0; i < [fontFamilies count]; i++)
     {
-        NSString *fontFamily = [fontFamilies objectAtIndex:i];
-        NSArray *fontNames = [UIFont fontNamesForFamilyName:[fontFamilies objectAtIndex:i]];
-        NSLog (@"%@: %@", fontFamily, fontNames);
+//        NSString *fontFamily = [fontFamilies objectAtIndex:i];
+//        NSArray *fontNames = [UIFont fontNamesForFamilyName:[fontFamilies objectAtIndex:i]];
     }
 }
 
@@ -210,7 +208,7 @@
 -(void)initButtomButton
 {
     if (!_resetGameButton) {
-        _resetGameButton = [[ButtomButton alloc ]initWithFrame:CGRectMake(0, WINDOW_SIZE_HEIGHT, WINDOW_SIZE_WIDTH, 44)];
+        _resetGameButton = [[ButtomButton alloc ]initWithFrame:CGRectMake(0, WINDOW_SIZE_HEIGHT, WINDOW_SIZE_WIDTH, 60)];
     }
     _resetGameButton.delegate = self;
     [self.view addSubview:_resetGameButton];
@@ -263,7 +261,6 @@
 {
     if (_gameMode == xComputerOhuman)
     {
-        NSLog(@"first Com");
         [self getComputerBestMove:boardMarkX andBoard:_boardModel];
         _playerTurn = oTurn;
         [_navBar setMainTitleText:@"CIRCLE turn."];
@@ -284,7 +281,6 @@
 {
     if ([_boardModel isGameComplete] || _timeEnd) {
         [_boardModel resetBoard];
-        NSLog(@"%@",_boardModel.grid) ;
         [_scoreBoard newGameAnimationDown];
         [_boardUI newGameAnimationDown];
         [_resetGameButton newGameAnimationDown];
@@ -337,7 +333,7 @@
                 break;
         }
     }
-    [_state printState];
+//    [_state printState];
 }
 
 -(void)isGameHaveWinner
@@ -345,7 +341,7 @@
     
     if ([_boardModel winner] != 0 || [_boardModel isGameComplete]) {
         [_navBar setMainTitleText:@""];
-        [_navBar addAlert:@"GAME OVER - DRAW."];
+        [_navBar addAlert:@"GAME OVER - DRAW"];
         [_clock resetTimer];
         [self endGameAnimation];
         [self updateState:[_boardModel winner]];
@@ -411,7 +407,6 @@
     {
         [_boardModel placeMove:playerType atIndex:bestMove];
         [_boardUI updateBoard:bestMove];
-      //  NSLog(@"best move for me:%ld",(long)bestMove);
     }
 }
 
@@ -426,11 +421,9 @@
             NSString *str = [_levelManager convertLevelToString:tempLevel];
             if (_level < tempLevel )
             {
-                NSLog(@"good");
-                [self levelAlert:[NSString stringWithFormat:@"level up, %@ AI",str]];
+                [self levelAlert:[NSString stringWithFormat:@"Good job! level up, %@ AI",str]];
             }else
             {
-                NSLog(@"sorry");
 
                 [self levelAlert:[NSString stringWithFormat:@"level down, %@ AI",str]];
 
@@ -471,7 +464,7 @@
 -(void)clockDidFinish
 {
     _timeEnd = YES;
-    [_navBar addAlert:@"Time's up! You lost the GAME"];
+    [_navBar addAlert:@"Time's up!"];
     [self endGameAnimation];
     [self updateScoreUI];
 }
@@ -491,7 +484,7 @@
 {
     [_scoreBoard endGameAnimationUp];
     [_boardUI endGameAnimationUp];
-    [_resetGameButton endGameAnimationUpWithDepth:44];
+    [_resetGameButton endGameAnimationUpWithDepth:60];
     _pause = YES;
     
 }
@@ -624,7 +617,6 @@
 
 -(void)buttonPress:(ButtomButton *)button
 {
-    NSLog(@"button Pressed");
     [self resetGame];
     _pause = NO;
 }
@@ -644,6 +636,13 @@
 {
     [self performSegueWithIdentifier:@"back" sender:nil];
 
+}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"back"]) {
+        GameViewController *vc = [segue destinationViewController ];
+        vc.gameMode = _gameMode;
+    }
 }
 
 

@@ -23,13 +23,13 @@
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "iTunesArtwork@2x copy2.png",
+      "filename" : "iphone@x2.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "iTunesArtwork@2x copy.png",
+      "filename" : "iphone@x3.png",
       "scale" : "3x"
     },
     {
@@ -55,13 +55,13 @@
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "iTunesArtwork@2x copy2 copy76-1.png",
+      "filename" : "ipad@x2.png",
       "scale" : "1x"
     },
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "iTunesArtwork@2x copy152.png",
+      "filename" : "ipad@x3.png",
       "scale" : "2x"
     }
   ],

@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ViewController.h"
+#import "GameViewController.h"
 #import "LogoView.h"
 #import "ButtomButton.h"
+#import "GameMode.h"
 
-@interface FirstViewController : UIViewController
+@interface StartViewController : UIViewController
+
+@property (nonatomic) TTTGameMode gameMode;
+
 
 @end

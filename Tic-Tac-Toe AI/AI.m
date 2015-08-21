@@ -24,25 +24,23 @@
 
 -(BOOL)bestMove:(level)level
 {
-    double r = drand48();
-    NSLog(@"r is %f",r);
-
+    double randomNumber = drand48();
     switch (level) {
         case easy:
-            if (r<.1) {
+            if (randomNumber<.1) {
                 return YES;
             }
             return NO;
             break;
         case meduim:
-            if (r<.3) {
+            if (randomNumber<.3) {
                 return YES;
             }
             return NO;
             break;
             
         case hard:
-            if (r<.6) {
+            if (randomNumber<.6) {
                 return YES;
             }
             return NO;

@@ -16,6 +16,7 @@
 
 #define WINDOW_WIDTH         self.frame.size.width
 #define WINDOW_HEIGHT         self.frame.size.height
+#define DIVICE_WINDOW_HEIGHT         self.window.frame.size.height
 
 
 
@@ -54,14 +55,14 @@
 -(void)addAlert:(NSString*)str
 {
     if (!_alert) {
-        _alert = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 250, 20)];
+        _alert = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 320, 40)];
     }
     _alert.textAlignment = NSTextAlignmentCenter;
     _alert.alpha = 0;
-    _alert.font = FONT(17);
+    _alert.font = FONT(26);
     _alert.text = str;;
     _alert.textColor = [UIColor whiteColor];
-    _alert.center = CGPointMake(WINDOW_WIDTH/2, 70);
+    _alert.center = CGPointMake(WINDOW_WIDTH/2, 80);
     [self addSubview:_alert];
     
     _alert.transform = CGAffineTransformMakeScale(0.1, 0.1);
@@ -94,10 +95,10 @@
 -(void)addMainTitle
 {
     if (!_mainTitle) {
-        _mainTitle = [[UILabel alloc]initWithFrame:CGRectMake(85, 16, 150, 20)];
+        _mainTitle = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 200, 20)];
         _mainTitle.font = FONT_BOLD(13);
         _mainTitle.center = CGPointMake(WINDOW_WIDTH/2, WINDOW_HEIGHT/2);
-        _mainTitle.textColor = Rgb2UIColor(255, 255, 255,1);
+        _mainTitle.textColor = [UIColor whiteColor];
         _mainTitle.textAlignment = NSTextAlignmentCenter;
         _mainTitle.text = @"SQURE turn.";
         [self addSubview:_mainTitle];
@@ -109,7 +110,7 @@
     if (!_levelTitle) {
         _levelTitle = [[UILabel alloc]initWithFrame:CGRectMake(WINDOW_WIDTH-96, 16, 80, 20)];
         _levelTitle.font = FONT_BOLD(13);
-        _levelTitle.textColor = Rgb2UIColor(176, 192, 206,1);
+        _levelTitle.textColor = [UIColor lightBlueTextColor];
         _levelTitle.textAlignment = NSTextAlignmentRight;
         _levelTitle.text = @"";
         [self addSubview:_levelTitle];
@@ -118,10 +119,11 @@
 
 -(void)addBackButton
 {
+    double const imageInsets = 11;
     if (!_backButton) {
         _backButton = [[UIButton alloc]initWithFrame:CGRectMake(2, 2, 44, 44)];
         [_backButton setImage:[UIImage imageNamed:@"back1.png"] forState:UIControlStateNormal];
-        _backButton.imageEdgeInsets =UIEdgeInsetsMake(11,11,11,11);
+        _backButton.imageEdgeInsets =UIEdgeInsetsMake(imageInsets,imageInsets,imageInsets,imageInsets);
         [_backButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_backButton];
         
@@ -131,7 +133,6 @@
 -(IBAction)buttonPressed:(id)sender
 {
     [_delegate backButtonPressed];
-    NSLog(@"button pressed");
 }
 
 -(void)setMainTitleText:(NSString*)str
@@ -171,7 +172,7 @@
 -(void)fadeInAnimation
 {
     self.transform =CGAffineTransformMakeTranslation(0, -50);
-    [UIView animateWithDuration:0.7 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:0 animations:^{
+    [UIView animateWithDuration:0.7 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionAllowUserInteraction animations:^{
         self.transform =CGAffineTransformMakeTranslation(0, 0);
         
     } completion:^(BOOL finished) {
@@ -180,7 +181,7 @@
 }
 -(void)fadeoutAnimation
 {
-    [UIView animateWithDuration:0.7 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:0 animations:^{
+    [UIView animateWithDuration:0.7 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionAllowUserInteraction animations:^{
         self.transform =CGAffineTransformMakeTranslation(0, -50);
         
     } completion:^(BOOL finished) {
@@ -190,7 +191,7 @@
 
 -(void)fadeoutAnimationWithDepth:(NSInteger)depth
 {
-    [UIView animateWithDuration:0.7 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:0 animations:^{
+    [UIView animateWithDuration:0.7 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionAllowUserInteraction animations:^{
         self.transform =CGAffineTransformMakeTranslation(0, -depth);
         
     } completion:^(BOOL finished) {

@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 amir lahav. All rights reserved.
 //
 
-#import "FirstViewController.h"
+#import "StartViewController.h"
 #define BACKGROUND_COLOR   Rgb2UIColor(57, 79, 98, 1)
 #define Rgb2UIColor(r, g, b, a)  [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:(a)]
 #define IPAD UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
@@ -16,7 +16,7 @@
 #define LOGO_SIZE  self.view.frame.size.width*.55
 
 
-@interface FirstViewController ()<ButtomButtonDelegate>
+@interface StartViewController ()<ButtomButtonDelegate>
 
 @property (nonatomic,strong) UILabel *divider;
 @property (nonatomic,strong) UILabel *square;
@@ -40,16 +40,13 @@
 
 @property (strong,nonatomic) UIViewController *modal;
 
-
-
-@property TTTGameMode gameMode;
 @property (nonatomic,strong) LogoView *logo;
 @property (nonatomic,strong) ButtomButton *startGameButton;
 @property BOOL test;
 
 @end
 
-@implementation FirstViewController
+@implementation StartViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -58,7 +55,6 @@
     [self registerAsObserver];
     [self initContainer];
     [self initHeaderContainer];
-    
 
     
 
@@ -170,6 +166,30 @@
 {
     [super viewDidAppear:animated];
     [self setupUI];
+    [self setGameModeStatusWithGameMode:_gameMode];
+}
+
+
+-(void)setGameModeStatusWithGameMode:(TTTGameMode)gameMode
+{
+    switch (gameMode)
+    {
+        case xHumanOComputer:
+            [self performSelector:@selector(player1DidPressed:) withObject:_player1Humen afterDelay:0];
+            [self performSelector:@selector(player2DidPressed:) withObject:_player2Computer afterDelay:0];
+            break;
+            
+        case xHumanOHuman:
+            [self performSelector:@selector(player1DidPressed:) withObject:_player1Humen afterDelay:0];
+            [self performSelector:@selector(player2DidPressed:) withObject:_player2Humen afterDelay:0];
+            break;
+            
+        case xComputerOhuman:
+            [self performSelector:@selector(player1DidPressed:) withObject:_player1Computer afterDelay:0];
+            [self performSelector:@selector(player2DidPressed:) withObject:_player2Humen afterDelay:0];
+            break;
+            
+    }
 }
 -(void)setupUI
 {
@@ -202,10 +222,11 @@
 
 -(void)addButtons
 {
-    double const firstRowHeight = _container.frame.size.height * 0.33;
-    NSLog(@"first row hight: %f",firstRowHeight);
-    double const seconedRowHeight = _container.frame.size.height * 0.67;
-    double const thiredRowHeight = WINDOW_SIZE_HEIGHT*.805;
+    double const thired = 0.33;
+    double const twoThired = 0.67;
+    double const firstRowHeight = _container.frame.size.height * thired;
+    double const seconedRowHeight = _container.frame.size.height * twoThired;
+//    double const thiredRowHeight = WINDOW_SIZE_HEIGHT*.805;
     double const xGap = 95;
     double const buttonHeight = 33;
     double const buttonWidth = 80;
@@ -261,20 +282,19 @@
 
     }
     
-    if (!_player2Frined) {
-        _player2Frined = [[UIButton alloc]initWithFrame:CGRectMake(WINDOW_SIZE_WIDTH-xGap-100,thiredRowHeight , 100, buttonHeight)];
-        _player2Frined.titleLabel.font = FONT(15);
-        _player2Frined.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-        [_player2Frined setTitleColor:Rgb2UIColor(176, 192, 206,1) forState:UIControlStateNormal];
-        [_player2Frined setTitle:@"friend's iPhone" forState:UIControlStateNormal];
-        //[self.view addSubview:_player2Frined];
-    }
+//    if (!_player2Frined) {
+//        _player2Frined = [[UIButton alloc]initWithFrame:CGRectMake(WINDOW_SIZE_WIDTH-xGap-100,thiredRowHeight , 100, buttonHeight)];
+//        _player2Frined.titleLabel.font = FONT(15);
+//        _player2Frined.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+//        [_player2Frined setTitleColor:Rgb2UIColor(176, 192, 206,1) forState:UIControlStateNormal];
+//        [_player2Frined setTitle:@"friend's iPhone" forState:UIControlStateNormal];
+//        //[self.view addSubview:_player2Frined];
+//    }
 }
 
 -(IBAction)player1DidPressed:(id)sender
 {
     if (sender == _player1Humen) {
-        NSLog(@"player 1 humen");
         [_player1Computer setTitleColor:Rgb2UIColor(176, 192, 206,1) forState:UIControlStateNormal];
         [_player1Humen setTitleColor:Rgb2UIColor(255, 255, 255,1) forState:UIControlStateNormal];
         _square.center = CGPointMake(27.5, _player1Humen.center.y);
@@ -282,7 +302,6 @@
         
     }else
     {
-        NSLog(@"player 1 computer");
         [_player1Computer setTitleColor:Rgb2UIColor(255, 255, 255,1) forState:UIControlStateNormal];
         [_player1Humen setTitleColor:Rgb2UIColor(176, 192, 206,1) forState:UIControlStateNormal];
         _square.center = CGPointMake(27.5, _player1Computer.center.y);
@@ -296,7 +315,6 @@
     double const width = _container.frame.size.width;
 
     if (sender == _player2Humen) {
-        NSLog(@"player 2 humen");
         [_player2Computer setTitleColor:Rgb2UIColor(176, 192, 206,1) forState:UIControlStateNormal];
         [_player2Humen setTitleColor:Rgb2UIColor(255, 255, 255,1) forState:UIControlStateNormal];
         _circle.center = CGPointMake(width  - 27.5, _player2Humen.center.y);
@@ -305,7 +323,6 @@
         
     }else
     {
-        NSLog(@"player 2 computer");
         [_player2Computer setTitleColor:Rgb2UIColor(255, 255, 255,1) forState:UIControlStateNormal];
         [_player2Humen setTitleColor:Rgb2UIColor(176, 192, 206,1) forState:UIControlStateNormal];
         _circle.center = CGPointMake(width - 27.5, _player2Computer.center.y);
@@ -373,7 +390,7 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"gamePage"]) {
-    ViewController *vc = [segue destinationViewController ];
+    GameViewController *vc = [segue destinationViewController ];
     vc.gameMode = [self getGameMode];
     }
     
@@ -443,7 +460,6 @@
 -(void)buttonPress:(ButtomButton *)button
 {
     if ([self getGameMode] == -1) {
-        NSLog(@" com vs com");
     }else
     {
 //        [self performSegueWithIdentifier:@"gamePage" sender:nil];

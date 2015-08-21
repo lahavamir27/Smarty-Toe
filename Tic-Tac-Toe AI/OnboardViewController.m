@@ -155,7 +155,7 @@
     [self addMarkers];
     
     _grid.transform = CGAffineTransformMakeTranslation(0, offset);
-    [UIView animateWithDuration:.8 delay:0.5 usingSpringWithDamping:.6 initialSpringVelocity:1 options:UIViewAnimationOptionAllowAnimatedContent animations:^{
+    [UIView animateWithDuration:.8 delay:0.5 usingSpringWithDamping:.6 initialSpringVelocity:1 options:UIViewAnimationOptionAllowUserInteraction animations:^{
         _grid.alpha = 1;
 
         _grid.transform = CGAffineTransformMakeTranslation(0, 0);
@@ -347,7 +347,6 @@
         if (imageSizeRatio>kMaxImageSize) {
             imageSizeRatio = kMaxImageSize;
         }
-        NSLog(@"iamge size: %f",imageSize*imageSizeRatio);
         _AIImageView = [[UIImageView alloc]initWithFrame:CGRectMake(80,80, imageSize*imageSizeRatio, imageSize*imageSizeRatio)];
         _AIImageView.center = CGPointMake(WINDOW_SIZE_WIDTH/2, WINDOW_SIZE_HEIGHT*0.3);
         _AIImageView.contentMode =  UIViewContentModeScaleAspectFit;
@@ -368,7 +367,6 @@
         if (imageSizeRatio>kMaxImageSize) {
             imageSizeRatio = kMaxImageSize;
         }
-        NSLog(@"iamge size: %f",imageSize*imageSizeRatio);
         _multyPlayerImageView = [[UIImageView alloc]initWithFrame:CGRectMake(80,80, imageSize*imageSizeRatio, imageSize*imageSizeRatio)];
         _multyPlayerImageView.center = CGPointMake(WINDOW_SIZE_WIDTH/2, WINDOW_SIZE_HEIGHT*0.3);
         _multyPlayerImageView.contentMode =  UIViewContentModeScaleAspectFit;
@@ -472,7 +470,7 @@
         _AISubTitleLabel = [self addSubTitle];
         [_AIContainerView addSubview:_AISubTitleLabel];
         _AISubTitleLabel.center = CGPointMake(WINDOW_SIZE_WIDTH/2, WINDOW_SIZE_HEIGHT*.63+55);
-        _AISubTitleLabel.text = @"Smarty can adopt you. As much as you get better smarty will challange you!";
+        _AISubTitleLabel.text = @"Smarty will adopt you. As much as you get better smarty will challange you!";
     }
     
 }
@@ -502,7 +500,6 @@
 -(void)playAction
 {
     if (!_isPlay) {
-        NSLog(@"play");
         _isPlay = YES;
         [self addSquareWithAnimation];
         [self animateGridUp];
@@ -575,7 +572,7 @@
     
     
     [UIView animateWithDuration:0.3 delay:0.01 options:UIViewAnimationOptionCurveEaseIn  | UIViewAnimationOptionBeginFromCurrentState animations:^{
-        _multyPlayerImageView.transform = CGAffineTransformMakeTranslation(-800, 0);
+        _multyPlayerImageView.transform = CGAffineTransformMakeTranslation(-1000, 0);
         _multyPlayerImageView.alpha = 0;
     } completion:^(BOOL finished) {
     }];
@@ -587,7 +584,7 @@
 {
     
     [UIView animateWithDuration:0.3 delay:0.01 options:UIViewAnimationOptionCurveEaseIn  | UIViewAnimationOptionAllowUserInteraction animations:^{
-        _MultiPlayerTitle.transform = CGAffineTransformMakeTranslation(-500, 0);
+        _MultiPlayerTitle.transform = CGAffineTransformMakeTranslation(-700, 0);
         _MultiPlayerTitle.alpha = 0;
     } completion:^(BOOL finished) {
         
@@ -607,7 +604,7 @@
 -(void)animateSubTitleDown
 {
     [UIView animateWithDuration:0.3 delay:0.00 options:UIViewAnimationOptionCurveEaseIn animations:^{
-        _MultiPlayerSubTitle.transform = CGAffineTransformMakeTranslation(-350, 0);
+        _MultiPlayerSubTitle.transform = CGAffineTransformMakeTranslation(-550, 0);
         _MultiPlayerSubTitle.alpha = 0;
     } completion:^(BOOL finished) {
         
@@ -636,7 +633,6 @@
 
 -(void)blinkImageViewAnimation
 {
-    NSLog(@"blink");
     [UIView animateWithDuration:.75 animations:^{
         _disclosureImageView.alpha = 0.6;
         
@@ -775,7 +771,6 @@
     _currentPage = lround(fractionalPage);
     self.pageControl.currentPage = _currentPage;
 
-//    NSLog(@"%f",offset);
 }
 
 -(CGPoint)addScrollViewOffset
@@ -803,7 +798,6 @@
 
 -(void)buttonPress:(ButtomButton *)button
 {
-//        NSLog(@"fadeout");
     switch ((int)_currentPage) {
         case 0:
             [self contentOffsetWithAnimation:[self addScrollViewOffset]];
