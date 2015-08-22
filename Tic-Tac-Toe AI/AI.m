@@ -27,20 +27,20 @@
     double randomNumber = drand48();
     switch (level) {
         case easy:
-            if (randomNumber<.1) {
+            if (randomNumber<.75) {
                 return YES;
             }
             return NO;
             break;
         case meduim:
-            if (randomNumber<.3) {
+            if (randomNumber<.85) {
                 return YES;
             }
             return NO;
             break;
             
         case hard:
-            if (randomNumber<.6) {
+            if (randomNumber<.95) {
                 return YES;
             }
             return NO;

@@ -504,11 +504,9 @@
     
     [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         _boardUI.alpha = 0;
-        _boardUI.transform = CGAffineTransformMakeScale(1.4, 1.4);
+        _boardUI.transform = CGAffineTransformMakeScale(1.2, 1.2);
         
-    } completion:^(BOOL finished) {
-        
-    }];
+    } completion:nil];
 }
 
 

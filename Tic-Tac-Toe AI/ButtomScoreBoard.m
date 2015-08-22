@@ -15,12 +15,6 @@
 #define FONT_REGULAR(a) [UIFont fontWithName:@"Avenir-Book" size:(a)]
 #define FONT_BOLD(a) [UIFont fontWithName:@"Avenir-Book" size:(a)]
 
-#define Rgb2UIColor(r, g, b, a)  [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:(a)]
-#define GREY_COLOR   Rgb2UIColor(176,192,206,1)
-#define LIGHT_GREY_COLOR   Rgb2UIColor(231,231,231,1)
-
-
-
 #define HEIGHT 143
 
 @interface ButtomScoreBoard()
@@ -41,7 +35,12 @@
 
 
 @end
+
+
 @implementation ButtomScoreBoard
+
+
+#pragma mark - init
 
 -(instancetype)initWithFrame:(CGRect)frame
 {
@@ -64,6 +63,9 @@
     [self addCircle];
    // [self addDivderLabel];
 }
+
+#pragma mark - create views
+
 
 -(void)addSquare
 {
@@ -92,21 +94,6 @@
     _circle.layer.cornerRadius = _circle.frame.size.height/2;;
     _circle.layer.borderColor = [UIColor lightPink].CGColor;
     [self addSubview:_circle];
-}
-
--(void)addTwoDots
-{
-    if (!_twoDots) {
-        
-        _twoDots = [[UILabel alloc]initWithFrame:CGRectMake(WINDOW_SIZE_WIDTH/2-15, 28, 30, 30)];
-   //     _twoDots.center = CGPointMake(WINDOW_SIZE_WIDTH/2, 20);
-        [self addSubview:_twoDots];
-        _twoDots.text = @":";
-        _twoDots.textColor = LIGHT_GREY_COLOR;
-        _twoDots.textAlignment = NSTextAlignmentCenter;
-        _twoDots.font = FONT_THIN(45);
-    }
-
 }
 
 -(void)addScores
@@ -160,8 +147,8 @@
         _playerXName.font = FONT_BOLD(13);
         _playerOName.font = FONT_BOLD(13);
         
-        _playerXName.textColor = GREY_COLOR;
-        _playerOName.textColor = GREY_COLOR;
+        _playerXName.textColor = [UIColor lightBlueTextColor];
+        _playerOName.textColor = [UIColor lightBlueTextColor];
         
         _playerXName.text = @"Player 1";
         _playerOName.text = @"Player 2";
@@ -189,6 +176,9 @@
     }
 }
 
+#pragma mark - setters and getters
+
+
 
 -(void)setScoreForPlayerX:(NSInteger)score
 {
@@ -209,6 +199,8 @@
     centerX= _playerXScore.center.x;
 
 }
+
+#pragma mark - animation
 
 
 -(void)fadeInAnimation

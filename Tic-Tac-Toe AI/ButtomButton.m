@@ -7,8 +7,10 @@
 //
 
 #import "ButtomButton.h"
-#define Rgb2UIColor(r, g, b, a)  [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:(a)]
+
 #define FONT(a) [UIFont fontWithName:@"Avenir-Medium" size:(a)]
+#define GREY_COLOR   Rgb2UIColor(127,160,189,.5)
+#define Rgb2UIColor(r, g, b, a)  [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:(a)]
 
 @interface ButtomButton()
 @property (nonatomic,strong) UIButton * button;
@@ -18,6 +20,7 @@
 
 @implementation ButtomButton
 
+#pragma mark - init
 
 
 -(instancetype)initWithFrame:(CGRect)frame
@@ -37,9 +40,8 @@
         [_button addTarget:self action:@selector(delegateButtonPress) forControlEvents:UIControlEventTouchUpInside];
         [_button setTitle:@"One More ?" forState:UIControlStateNormal];
         _button.titleLabel.font  = FONT(13);
-        [_button setTitleColor:Rgb2UIColor(255, 255, 255, 1) forState:UIControlStateNormal];
-        _button.backgroundColor = Rgb2UIColor(75, 170, 221, 1);
-        
+        [_button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        _button.backgroundColor = [UIColor lightBlue];
         [self addSubview:_button];
     }
     
@@ -50,7 +52,7 @@
     CGRect topDividerframe = CGRectMake(0, 0, self.frame.size.width, 1);
     self.divider = [[UILabel alloc]initWithFrame:topDividerframe];
     self.divider.transform = CGAffineTransformMakeScale(0, 1);
-    _divider.backgroundColor= Rgb2UIColor(255, 255, 255, .1);
+    _divider.backgroundColor= GREY_COLOR;
     [self addSubview:_divider];
     [UIView animateWithDuration:0.1
                           delay:0
@@ -59,6 +61,9 @@
                          self.divider.transform = CGAffineTransformMakeScale(1, 1);
                      }   completion:^(BOOL finished) {  }];
 }
+
+#pragma mark - setter and getters
+
 
 -(void)fixButtonSize
 {
@@ -70,10 +75,6 @@
 -(void)setTitle:(NSString*)str
 {
     [_button setTitle:str forState:UIControlStateNormal];
-}
--(void)delegateButtonPress
-{
-        [_delegate buttonPress:self];
 }
 
 -(void)setButtomButtonColor:(UIColor*)color withAnimation:(BOOL)animation;
@@ -87,9 +88,19 @@
             
         }];
     }else{
-    _button.backgroundColor = color;
+        _button.backgroundColor = color;
     }
 }
+
+#pragma mark - delegate
+
+-(void)delegateButtonPress
+{
+        [_delegate buttonPress:self];
+}
+
+
+#pragma mark - animation
 
 
 -(void)endGameAnimationUpWithDepth:(NSInteger)depth
@@ -112,12 +123,6 @@
                          
                      }];
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+
 
 @end

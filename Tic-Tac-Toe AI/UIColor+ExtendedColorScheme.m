@@ -31,4 +31,8 @@
 {
     return Rgb2UIColor(176, 192, 206,1);
 }
-@end
++(UIColor*)darkBlueNavigitonBarColor
+{
+    return Rgb2UIColor(55, 75, 92, 1);
+}
+    @end

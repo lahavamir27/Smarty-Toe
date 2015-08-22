@@ -9,9 +9,7 @@
 #import "NavigationBar.h"
 
 #define FONT_BOLD(a) [UIFont fontWithName:@"Avenir-Book" size:(a)]
-#define Rgb2UIColor(r, g, b, a)  [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:(a)]
-#define DARK_GREY_COLOR   Rgb2UIColor(71,71,71,1)
-#define GREY_COLOR   Rgb2UIColor(101,101,101,1)
+
 #define FONT(a) [UIFont fontWithName:@"Avenir-Book" size:(a)]
 
 #define WINDOW_WIDTH         self.frame.size.width
@@ -33,13 +31,17 @@
 
 @implementation NavigationBar
 
+
+#pragma mark - init
+
+
 -(instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         
         [self setupUI];
-        self.backgroundColor = Rgb2UIColor(55, 75, 92, 1);
+        self.backgroundColor = [UIColor darkBlueNavigitonBarColor];
 
     }
     return self;
@@ -51,6 +53,9 @@
     [self addSubtitle];
     [self addBackButton];
 }
+
+#pragma mark - create views
+
 
 -(void)addAlert:(NSString*)str
 {
@@ -130,10 +135,16 @@
     }
 }
 
+#pragma mark - delegate
+
+
 -(IBAction)buttonPressed:(id)sender
 {
     [_delegate backButtonPressed];
 }
+
+
+#pragma mark - setters
 
 -(void)setMainTitleText:(NSString*)str
 {
@@ -169,6 +180,9 @@
 
 }
 
+#pragma mark - animation
+
+
 -(void)fadeInAnimation
 {
     self.transform =CGAffineTransformMakeTranslation(0, -50);
@@ -199,12 +213,6 @@
     }];
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+
 
 @end

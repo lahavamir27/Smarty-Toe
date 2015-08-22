@@ -43,6 +43,7 @@
 
 -(void)endGameAnimationUp;
 -(void)newGameAnimationDown;
+-(void)fadeout;
 
 
 @end

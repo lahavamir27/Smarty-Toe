@@ -8,9 +8,6 @@
 
 #import "GameCellUI.h"
 
-
-#define Rgb2UIColor(r, g, b, a)  [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:(a)]
-
 @interface GameCellUI()
 
 @property (nonatomic,strong) UILabel *lbl;
@@ -19,6 +16,9 @@
 
 
 @implementation GameCellUI
+
+#pragma mark - init
+
 
 -(instancetype)initWithFrame:(CGRect)frame
 {
@@ -50,6 +50,10 @@
     [_lbl removeFromSuperview];
     _lbl = nil;
 }
+
+#pragma mark - setter and getters
+
+
 -(void)setLabelTitle:(NSString*)str
 {
     _lbl.text = str;

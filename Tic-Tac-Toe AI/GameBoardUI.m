@@ -23,6 +23,9 @@
 @implementation GameBoardUI
 
 
+#pragma mark -  init object
+
+
 -(instancetype)initWithFrame:(CGRect)frame andDataSource:(id<GameBoardUIDataSource>)dataSource
 {
     self = [super initWithFrame:frame];
@@ -33,6 +36,9 @@
     }
     return  self;
 }
+
+#pragma mark -  create views
+
 
 -(void)createGameBoardUI
 {
@@ -68,42 +74,20 @@
 }
 
 
+#pragma mark - collection view methods
+
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     double const numOfCell = 9;
     return numOfCell;
 }
--(void)getBoard
-{
-    if (!_boardArray) {
-        _boardArray = [NSMutableArray array];
-    }
-    _boardArray = [_dataSource getBoard:self];
-}
 
--(void)updateBoardUI
-{
-    NSMutableArray *indexPathArr = [NSMutableArray array];
-    [self getBoard];
-    for (int i=0; i<9; i++) {
-        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];
-        [indexPathArr addObject:indexPath];
-    }
-
-    [UIView animateWithDuration:0.8 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionAllowUserInteraction animations:^{
-        [_gameBoardUI reloadItemsAtIndexPaths:indexPathArr];
-
-    } completion:^(BOOL finished) {
-        
-    }];
-}
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     return 1;
 }
 
-
-// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (GameCellUI *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -140,8 +124,6 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    // If you need to use the touched cell, you can retrieve it like so
-//    GameCellUI * cell = (GameCellUI*) [collectionView cellForItemAtIndexPath:indexPath];
     
     [self cellPressedDelegateWithCellNUmber:indexPath.row];
 
@@ -150,10 +132,39 @@
         NSArray *indexPathArr = [NSArray arrayWithObjects:indexPath, nil];
         [_gameBoardUI reloadItemsAtIndexPaths:indexPathArr];
     }
-
-   // [self updateBoardUI];
     
 }
+
+#pragma mark - uodate views
+
+
+-(void)updateBoardUI
+{
+    NSMutableArray *indexPathArr = [NSMutableArray array];
+    [self getBoard];
+    for (int i=0; i<9; i++) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:i inSection:0];
+        [indexPathArr addObject:indexPath];
+    }
+    
+    [UIView animateWithDuration:0.8 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+        [_gameBoardUI reloadItemsAtIndexPaths:indexPathArr];
+        
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+
+-(void)updateBoard:(NSInteger)index
+{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
+    NSArray *indexPathArr = [NSArray arrayWithObjects:indexPath, nil];
+    [_gameBoardUI reloadItemsAtIndexPaths:indexPathArr];
+}
+
+#pragma mark - delegate
+
+
 -(void)cellPressedDelegateWithCellNUmber:(NSInteger)num
 {
     [_delegate cellPress:self withCellNumber:num];
@@ -163,6 +174,22 @@
 {
     [_delegate animationDidFinishLoad];
 }
+
+#pragma mark - data source
+
+
+-(void)getBoard
+{
+    if (!_boardArray) {
+        _boardArray = [NSMutableArray array];
+    }
+    _boardArray = [_dataSource getBoard:self];
+}
+
+#pragma mark - animation
+
+
+
 
 -(void)endGameAnimationUp
 {
@@ -201,11 +228,16 @@
     
 }
 
--(void)updateBoard:(NSInteger)index
+-(void)fadeout
 {
-    NSIndexPath *indexPath = [NSIndexPath indexPathForItem:index inSection:0];
-    NSArray *indexPathArr = [NSArray arrayWithObjects:indexPath, nil];
-    [_gameBoardUI reloadItemsAtIndexPaths:indexPathArr];
+    [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        _gameBoardUI.alpha = 0;
+        _gameBoardUI.transform = CGAffineTransformMakeScale(1.2, 1.2);
+        _grid.alpha = 0;
+        _grid.transform = CGAffineTransformMakeScale(1.2, 1.2);
+    } completion:^(BOOL finished) {
+        
+    }];
 }
 
 
