@@ -51,9 +51,12 @@
 @property (nonatomic,strong) UIImageView * multyPlayerImageView;
 
 @property (strong, nonatomic) SMPageControl *pageControl;
+@property (strong, nonatomic) NSNumber *watch;
 
 @property BOOL isPlay;
 @property BOOL finishScroll;
+@property BOOL watchIntro;
+
 
 @property double gameSize;
 @property double currentPage;
@@ -71,6 +74,16 @@
     [self initScorllView];
     [self initScrollViewContainers];
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+    _watch = [defaults objectForKey:@"watch"];
+    
+    
+
+    
+    _watchIntro = YES;
+    
+    [defaults setObject:[NSNumber numberWithBool:_watchIntro] forKey:@"watch"];
 
     // Do any additional setup after loading the view.
 }
@@ -83,6 +96,9 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    if ([_watch integerValue] == 1) {
+        [self performSegueWithIdentifier:@"main" sender:nil];
+    }
     [self setupUI];
 }
 
