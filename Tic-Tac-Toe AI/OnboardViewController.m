@@ -11,8 +11,7 @@
 #define WINDOW_SIZE_HEIGHT  self.view.frame.size.height
 #define GOLDEN_RATIO 0.50
 #define GAME_SIZE  self.view.frame.size.width*.65
-#define BACKGROUND_COLOR   Rgb2UIColor(57, 79, 98, 1)
-#define Rgb2UIColor(r, g, b, a)  [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:(a)]
+
 #define FONT_LIGHT(a) [UIFont fontWithName:@"Avenir-Light" size:(a)]
 #define FONT(a) [UIFont fontWithName:@"Avenir-Book" size:(a)]
 
@@ -97,7 +96,7 @@
 {
     [super viewDidAppear:animated];
     if ([_watch integerValue] == 1) {
-        [self performSegueWithIdentifier:@"main" sender:nil];
+    //    [self performSegueWithIdentifier:@"main" sender:nil];
     }
     [self setupUI];
 }
@@ -171,25 +170,12 @@
     [self addMarkers];
     
     _grid.transform = CGAffineTransformMakeTranslation(0, offset);
+    
     [UIView animateWithDuration:.8 delay:0.5 usingSpringWithDamping:.6 initialSpringVelocity:1 options:UIViewAnimationOptionAllowUserInteraction animations:^{
         _grid.alpha = 1;
-
         _grid.transform = CGAffineTransformMakeTranslation(0, 0);
-    } completion:^(BOOL finished) {
-        
-    }];
-    [UIView animateWithDuration:0.7 animations:^{
+    } completion:nil];
 
-
-    } completion:^(BOOL finished) {
-        
-    }];
-    
-    [UIView animateWithDuration:1 delay:.4 options:UIViewAnimationOptionCurveEaseOut animations:^{
-    
-    } completion:^(BOOL finished) {
-        
-    }];
 }
 
 
@@ -203,7 +189,7 @@
     _startGameButton.delegate = self;
     [self.view addSubview:_startGameButton];
     [_startGameButton endGameAnimationUpWithDepth:depth];
-    [_startGameButton setButtomButtonColor:BACKGROUND_COLOR withAnimation:NO];
+    [_startGameButton setButtomButtonColor:[UIColor backgrounDarkBlue] withAnimation:NO];
     [_startGameButton setTitle:@"NEXT"];
     [_startGameButton addDivider];
 }
@@ -409,7 +395,6 @@
         title.textColor = [UIColor whiteColor];
         title.textAlignment = NSTextAlignmentCenter;
         title.center = CGPointMake(WINDOW_SIZE_WIDTH/2, titlesDistanceFromTopView);
-        title.text = @"Welcome to Smarty";
 
     return title;
     
@@ -422,6 +407,8 @@
         _smartyTitleLabel = [self addMainTitle];
         _smartyTitleLabel.center = CGPointMake(WINDOW_SIZE_WIDTH/2, WINDOW_SIZE_HEIGHT+_smartyTitleLabel.frame.size.height/2);
         _smartyTitleLabel.alpha  = 0;
+        _smartyTitleLabel.text = @"Smarty Toe";
+
         [self.view addSubview:_smartyTitleLabel];
     }
 
@@ -460,7 +447,7 @@
 
         subTitle.font = FONT(13);
         subTitle.numberOfLines = 4;
-        subTitle.textColor = Rgb2UIColor(176, 196, 212, 1);
+        subTitle.textColor = [UIColor lightBlueTextColor];
      //   _subTitleLabel.textColor = [UIColor whiteColor];
 
         subTitle.textAlignment = NSTextAlignmentCenter;
@@ -474,7 +461,7 @@
 {
     if (!_smartySubTitleLabel) {
         _smartySubTitleLabel = [self addSubTitle];
-        _smartySubTitleLabel.text = @"Enjoy the world best Tic Tac Toe game ever Build. Smarty can bring something New to the game.";
+        _smartySubTitleLabel.text = @"Enjoy the world best Tic Tac Toe game ever Built. Hours of fun guaranteed.";
 
         [self.view addSubview:_smartySubTitleLabel];
     }
@@ -486,7 +473,7 @@
         _AISubTitleLabel = [self addSubTitle];
         [_AIContainerView addSubview:_AISubTitleLabel];
         _AISubTitleLabel.center = CGPointMake(WINDOW_SIZE_WIDTH/2, WINDOW_SIZE_HEIGHT*.63+55);
-        _AISubTitleLabel.text = @"Smarty will adopt you. As much as you get better smarty will challange you!";
+        _AISubTitleLabel.text = @"Smarty born with dynamic AI, it's monitoring your progress and level up as much as you get better.";
     }
     
 }
@@ -497,7 +484,7 @@
         _MultiPlayerSubTitle = [self addSubTitle];
         [_multiplayerContainerView addSubview:_MultiPlayerSubTitle];
         _MultiPlayerSubTitle.center = CGPointMake(WINDOW_SIZE_WIDTH/2, WINDOW_SIZE_HEIGHT*.63+55);
-        _MultiPlayerSubTitle.text = @"With smarty you can enjoy a great family time. Smarty let you play with your closest ones.";
+        _MultiPlayerSubTitle.text = @"On multiplayer mode you can try beat your friends on your own iDevice.";
     }
 }
 
@@ -581,13 +568,13 @@
     }];
 }
 
-#pragma mark - Animation Down
+#pragma mark - Animation Left
 
--(void)animateImageDown
+-(void)animateImageLeft
 {
     
     
-    [UIView animateWithDuration:0.3 delay:0.01 options:UIViewAnimationOptionCurveEaseIn  | UIViewAnimationOptionBeginFromCurrentState animations:^{
+    [UIView animateWithDuration:0.3 delay:0.00 options:UIViewAnimationOptionCurveEaseIn  | UIViewAnimationOptionBeginFromCurrentState animations:^{
         _multyPlayerImageView.transform = CGAffineTransformMakeTranslation(-1000, 0);
         _multyPlayerImageView.alpha = 0;
     } completion:^(BOOL finished) {
@@ -596,28 +583,17 @@
 
 }
 
--(void)animateTitleDown
+-(void)animateTitleLeft
 {
     
-    [UIView animateWithDuration:0.3 delay:0.01 options:UIViewAnimationOptionCurveEaseIn  | UIViewAnimationOptionAllowUserInteraction animations:^{
+    [UIView animateWithDuration:0.3 delay:0.00 options:UIViewAnimationOptionCurveEaseIn  | UIViewAnimationOptionAllowUserInteraction animations:^{
         _MultiPlayerTitle.transform = CGAffineTransformMakeTranslation(-700, 0);
         _MultiPlayerTitle.alpha = 0;
     } completion:^(BOOL finished) {
         
     }];
 }
-
--(void)animatePageControlDown
-{
-    
-    [UIView animateWithDuration:0.3 delay:0.01 options:UIViewAnimationOptionCurveEaseIn animations:^{
-        _pageControl.transform = CGAffineTransformMakeTranslation(-50, 0);
-        _pageControl.alpha = 0;
-    } completion:^(BOOL finished) {
-        
-    }];
-}
--(void)animateSubTitleDown
+-(void)animateSubTitleLeft
 {
     [UIView animateWithDuration:0.3 delay:0.00 options:UIViewAnimationOptionCurveEaseIn animations:^{
         _MultiPlayerSubTitle.transform = CGAffineTransformMakeTranslation(-550, 0);
@@ -625,7 +601,17 @@
     } completion:^(BOOL finished) {
         
     }];
+}-(void)animatePageControlLeft
+{
+    
+    [UIView animateWithDuration:0.3 delay:0.00 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        _pageControl.transform = CGAffineTransformMakeTranslation(-150, 0);
+        _pageControl.alpha = 0;
+    } completion:^(BOOL finished) {
+        
+    }];
 }
+
 #pragma mark - Small Animations
 
 -(void)dimMarkersWithAnimation
@@ -667,10 +653,10 @@
 
 -(void)fadeoutViewControllerAnimation
 {
-    [self animateImageDown];
-    [self animateTitleDown];
-    [self animatePageControlDown];
-    [self animateSubTitleDown];
+    [self animateImageLeft];
+    [self animateTitleLeft];
+    [self animatePageControlLeft];
+    [self animateSubTitleLeft];
     [_startGameButton newGameAnimationDown];
 }
 

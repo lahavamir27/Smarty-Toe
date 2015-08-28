@@ -45,7 +45,7 @@
     }
     else
     {
-        _playerName = @"humen";
+        _playerName = @"human";
     }
 }
 

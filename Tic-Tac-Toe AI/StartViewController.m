@@ -144,12 +144,12 @@
 
     if (_player2human == NO && _player1human == NO) {
         _startGameButton.userInteractionEnabled = NO;
-        [_startGameButton setButtomButtonColor:Rgb2UIColor(55  , 75, 92, 1) withAnimation:YES];
+        [_startGameButton setButtomButtonColor:[UIColor darkBlueNavigitonBarColor] withAnimation:YES];
         [_startGameButton setTitle:@"at least 1 human player"];
     }else
     {
         _startGameButton.userInteractionEnabled = YES;
-        [_startGameButton setButtomButtonColor:Rgb2UIColor(75, 170, 221, 1) withAnimation:YES];
+        [_startGameButton setButtomButtonColor:[UIColor lightBlue] withAnimation:YES];
         [_startGameButton setTitle:@"New Game"];
 
 
@@ -204,7 +204,6 @@
     [self animateHeaderContainer];
     [self animateContainer];
     [self performSelector:@selector(initButtomButton) withObject:nil afterDelay:.35];
- //   [self performSelector:@selector(initLogo) withObject:nil afterDelay:0];
 
 }
 
@@ -294,17 +293,19 @@
 
 -(IBAction)player1DidPressed:(id)sender
 {
+    double const gap = 27.5;
+
     if (sender == _player1Humen) {
-        [_player1Computer setTitleColor:Rgb2UIColor(176, 192, 206,1) forState:UIControlStateNormal];
-        [_player1Humen setTitleColor:Rgb2UIColor(255, 255, 255,1) forState:UIControlStateNormal];
-        _square.center = CGPointMake(27.5, _player1Humen.center.y);
+        [_player1Computer setTitleColor:[UIColor lightBlueTextColor] forState:UIControlStateNormal];
+        [_player1Humen setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        _square.center = CGPointMake(gap, _player1Humen.center.y);
         [self setValue:[NSNumber numberWithBool:YES] forKey:@"player1human"];
         
     }else
     {
-        [_player1Computer setTitleColor:Rgb2UIColor(255, 255, 255,1) forState:UIControlStateNormal];
-        [_player1Humen setTitleColor:Rgb2UIColor(176, 192, 206,1) forState:UIControlStateNormal];
-        _square.center = CGPointMake(27.5, _player1Computer.center.y);
+        [_player1Computer setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_player1Humen setTitleColor:[UIColor lightBlueTextColor] forState:UIControlStateNormal];
+        _square.center = CGPointMake(gap, _player1Computer.center.y);
         [self setValue:[NSNumber numberWithBool:NO] forKey:@"player1human"];
 
     }
@@ -313,19 +314,20 @@
 -(IBAction)player2DidPressed:(id)sender
 {
     double const width = _container.frame.size.width;
+    double const gap = 27.5;
 
     if (sender == _player2Humen) {
-        [_player2Computer setTitleColor:Rgb2UIColor(176, 192, 206,1) forState:UIControlStateNormal];
-        [_player2Humen setTitleColor:Rgb2UIColor(255, 255, 255,1) forState:UIControlStateNormal];
-        _circle.center = CGPointMake(width  - 27.5, _player2Humen.center.y);
+        [_player2Computer setTitleColor:[UIColor lightBlueTextColor] forState:UIControlStateNormal];
+        [_player2Humen setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        _circle.center = CGPointMake(width  - gap, _player2Humen.center.y);
         [self setValue:[NSNumber numberWithBool:YES] forKey:@"player2human"];
 
         
     }else
     {
-        [_player2Computer setTitleColor:Rgb2UIColor(255, 255, 255,1) forState:UIControlStateNormal];
-        [_player2Humen setTitleColor:Rgb2UIColor(176, 192, 206,1) forState:UIControlStateNormal];
-        _circle.center = CGPointMake(width - 27.5, _player2Computer.center.y);
+        [_player2Computer setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_player2Humen setTitleColor:[UIColor lightBlueTextColor] forState:UIControlStateNormal];
+        _circle.center = CGPointMake(width - gap, _player2Computer.center.y);
         [self setValue:[NSNumber numberWithBool:NO] forKey:@"player2human"];
     }
 }
@@ -352,8 +354,7 @@
     
     _square = [[UILabel alloc] initWithFrame:CGRectMake(150, 150,(int) 15,15)];
     _square.layer.borderWidth = 2.5;
-    _square.layer.borderColor = [UIColor redColor].CGColor;
-    _square.layer.borderColor = Rgb2UIColor(95, 200, 235, 1).CGColor;
+    _square.layer.borderColor = [UIColor lightBlue].CGColor;
     _square.center = CGPointMake(27.5, _player1Humen.center.y);
     [_container addSubview:_square];
 
@@ -365,7 +366,7 @@
     _circle = [[UILabel alloc] initWithFrame:CGRectMake(150, 150,(int) 16,16)];
     _circle.layer.borderWidth = 2.5;
     _circle.layer.borderColor = [UIColor redColor].CGColor;
-    _circle.layer.borderColor = Rgb2UIColor(240, 166, 220, 1).CGColor;
+    _circle.layer.borderColor = [UIColor lightPink].CGColor;
     _circle.layer.cornerRadius = _circle.frame.size.height/2;
     _circle.center = CGPointMake(width - 27.5, _player2Computer.center.y);
 
@@ -407,7 +408,7 @@
         _player1Labal = [[UILabel alloc]initWithFrame:CGRectMake(xGap  , 0, labelWidth, labelheight)];
         _player1Labal.text = @"player 1";
         _player1Labal.font = FONT(13);
-        _player1Labal.textColor = Rgb2UIColor(176, 192, 206,1);
+        _player1Labal.textColor = [UIColor lightBlueTextColor];
         [_headerContainer addSubview:_player1Labal];
 
     }
@@ -417,7 +418,7 @@
         _player2Labal.text = @"player 2";
         _player2Labal.font = FONT(13);
         _player2Labal.textAlignment = NSTextAlignmentRight;
-        _player2Labal.textColor = Rgb2UIColor(176, 192, 206,1);
+        _player2Labal.textColor = [UIColor lightBlueTextColor];
         [_headerContainer addSubview:_player2Labal];
 
     }
@@ -427,7 +428,7 @@
         _vsLabel.textAlignment = NSTextAlignmentCenter;
         _vsLabel.text = @"vs";
         _vsLabel.font = FONT(15);
-        _vsLabel.textColor = Rgb2UIColor(255, 255, 255,1);
+        _vsLabel.textColor =[UIColor whiteColor];
         [_headerContainer addSubview:_vsLabel];
 
     }
@@ -452,7 +453,7 @@
     
     self.divider = [[UILabel alloc]initWithFrame:topDividerframe];
     self.divider.transform = CGAffineTransformMakeScale(1, 1);
-    _divider.backgroundColor=  Rgb2UIColor(127,160,189,.5);
+    _divider.backgroundColor=  [UIColor dividerColorBlue];
     [_headerContainer addSubview:_divider];
 
 }
@@ -517,7 +518,6 @@
         
         [UIView animateWithDuration:0.6 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:0 animations:^{
             self.view.alpha = 0.9;
-//            self.view.backgroundColor = Rgb2UIColor(21, 21, 22, 1);
 
             self.modal.view.frame = CGRectMake(0, WINDOW_SIZE_HEIGHT/2, 320, WINDOW_SIZE_HEIGHT);;
 
