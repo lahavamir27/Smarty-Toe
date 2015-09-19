@@ -195,7 +195,7 @@
 }
 -(void)fadeoutAnimation
 {
-    [UIView animateWithDuration:0.7 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+    [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionAllowUserInteraction animations:^{
         self.transform =CGAffineTransformMakeTranslation(0, -50);
         
     } completion:^(BOOL finished) {
@@ -205,7 +205,7 @@
 
 -(void)fadeoutAnimationWithDepth:(NSInteger)depth
 {
-    [UIView animateWithDuration:0.7 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+    [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionAllowUserInteraction animations:^{
         self.transform =CGAffineTransformMakeTranslation(0, -depth);
         
     } completion:^(BOOL finished) {

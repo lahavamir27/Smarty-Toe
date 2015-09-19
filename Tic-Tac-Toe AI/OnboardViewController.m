@@ -96,7 +96,7 @@
 {
     [super viewDidAppear:animated];
     if ([_watch integerValue] == 1) {
-    //    [self performSegueWithIdentifier:@"main" sender:nil];
+        [self performSegueWithIdentifier:@"main" sender:nil];
     }
     [self setupUI];
 }

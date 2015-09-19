@@ -16,5 +16,5 @@
 +(UIColor*)dividerColorBlue;
 +(UIColor*)lightBlueTextColor;
 +(UIColor*)darkBlueNavigitonBarColor;
-
++(UIColor*)lightBlueButtom;
 @end

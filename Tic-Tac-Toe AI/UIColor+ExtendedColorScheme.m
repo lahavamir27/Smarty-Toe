@@ -35,4 +35,8 @@
 {
     return Rgb2UIColor(55, 75, 92, 1);
 }
++(UIColor*)lightBlueButtom
+{
+    return Rgb2UIColor(60, 170, 200, 1);
+}
     @end

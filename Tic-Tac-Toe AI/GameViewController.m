@@ -502,9 +502,9 @@
     }
     [_resetGameButton newGameAnimationDown];
     
-    [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+    [UIView animateWithDuration:0.20 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         _boardUI.alpha = 0;
-        _boardUI.transform = CGAffineTransformMakeScale(1.2, 1.2);
+        _boardUI.transform = CGAffineTransformMakeScale(1.1, 1.1);
         
     } completion:nil];
 }

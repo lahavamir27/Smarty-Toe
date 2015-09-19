@@ -39,9 +39,10 @@
        
         [_button addTarget:self action:@selector(delegateButtonPress) forControlEvents:UIControlEventTouchUpInside];
         [_button setTitle:@"One More ?" forState:UIControlStateNormal];
-        _button.titleLabel.font  = FONT(13);
+        _button.titleLabel.font  = FONT(15);
         [_button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        _button.backgroundColor = [UIColor lightBlue];
+        [_button setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+        _button.backgroundColor = [UIColor lightBlueButtom];
         [self addSubview:_button];
     }
     

@@ -74,9 +74,9 @@
 
     _lbl.layer.borderColor = [UIColor lightPink].CGColor;
     _lbl.alpha = 0;
-    _lbl.transform = CGAffineTransformMakeScale(0.1, 0.1);
+    _lbl.transform = CGAffineTransformMakeScale(0.6, 0.6);
     
-    [UIView animateWithDuration:0.6 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+    [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:0 animations:^{
         _lbl.alpha = 1;
         _lbl.transform = CGAffineTransformMakeScale(1, 1);
     } completion:^(BOOL finished) {
@@ -93,7 +93,7 @@
 {
     _lbl.layer.borderColor = [UIColor lightBlue].CGColor;
     _lbl.alpha = 0;
-    _lbl.transform = CGAffineTransformMakeScale(0.1, 0.1);
+    _lbl.transform = CGAffineTransformMakeScale(0.6, 0.6);
     _lbl.layer.cornerRadius = 2;
     _lbl.backgroundColor = [UIColor backgrounDarkBlue];
 
@@ -103,7 +103,7 @@
     } completion:^(BOOL finished) {
         
     }];
-    [UIView animateWithDuration:0.6 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+    [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:0 animations:^{
         _lbl.alpha = 1;
         _lbl.transform = CGAffineTransformMakeScale(1, 1);
         

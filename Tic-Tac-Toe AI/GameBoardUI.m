@@ -193,7 +193,7 @@
 
 -(void)endGameAnimationUp
 {
-    double const offset = -24;
+    double const offset = -30;
     [UIView animateWithDuration:0.52 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:0 animations:^{
         _grid.transform =CGAffineTransformMakeTranslation(0, offset);
         _gameBoardUI.transform =CGAffineTransformMakeTranslation(0, offset);
@@ -215,9 +215,9 @@
 
 -(void)fadeInAnimation
 {
-    _grid.transform = CGAffineTransformMakeScale(0.7, 0.7);
+    _grid.transform = CGAffineTransformMakeScale(0.9, 0.9);
     _grid.alpha = 0;
-    [UIView animateWithDuration:0.4 delay:0.1 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+    [UIView animateWithDuration:0.2 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionAllowUserInteraction animations:^{
         _grid.transform = CGAffineTransformMakeScale(1, 1);
         _grid.alpha = 1;
         
