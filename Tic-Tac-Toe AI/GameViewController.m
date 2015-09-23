@@ -138,22 +138,12 @@
 
     
     _clock = [[Clock alloc]initWithFrame:CGRectMake(0, 50, self.view.frame.size.width, 2)];
-  //  _clock.center = CGPointMake(160, 85);
     _clock.delegate = self;
     [_navBar addSubview:_clock];
-//    [_clock fireCountDown];
 
     
 }
--(void)fontNames
-{
-    NSArray *fontFamilies = [UIFont familyNames];
-    for (int i = 0; i < [fontFamilies count]; i++)
-    {
-//        NSString *fontFamily = [fontFamilies objectAtIndex:i];
-//        NSArray *fontNames = [UIFont fontNamesForFamilyName:[fontFamilies objectAtIndex:i]];
-    }
-}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -333,7 +323,6 @@
                 break;
         }
     }
-//    [_state printState];
 }
 
 -(void)isGameHaveWinner

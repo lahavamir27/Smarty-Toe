@@ -43,7 +43,6 @@
 		4DBB1BB21B74B2A90087BE8C /* Back-100 (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 4DBB1BB11B74B2A90087BE8C /* Back-100 (1).png */; };
 		4DBB1BB41B74B3280087BE8C /* Previous.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DBB1BB31B74B3280087BE8C /* Previous.png */; };
 		4DBC34571B84D35200AEF32E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DD816981B7F353300620CF7 /* SystemConfiguration.framework */; };
-		4DBC34581B84D35C00AEF32E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DD816961B7F352900620CF7 /* StoreKit.framework */; };
 		4DBC345B1B84D3A800AEF32E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DD816941B7F352200620CF7 /* Security.framework */; };
 		4DBC345C1B84D3B300AEF32E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DD816921B7F351600620CF7 /* QuartzCore.framework */; };
 		4DBC345D1B84D3BB00AEF32E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DD816901B7F350F00620CF7 /* CoreLocation.framework */; };
@@ -133,7 +132,6 @@
 		4DD816901B7F350F00620CF7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		4DD816921B7F351600620CF7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4DD816941B7F352200620CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		4DD816961B7F352900620CF7 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		4DD816981B7F353300620CF7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4DD8169E1B7F517E00620CF7 /* GameMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameMode.h; sourceTree = "<group>"; };
 		4DD8169F1B7F517E00620CF7 /* GameMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameMode.m; sourceTree = "<group>"; };
@@ -161,7 +159,6 @@
 				4DBC345C1B84D3B300AEF32E /* QuartzCore.framework in Frameworks */,
 				4D6E1D5A1B874DED00B9B263 /* ParseTwitterUtils.framework in Frameworks */,
 				4DBC345B1B84D3A800AEF32E /* Security.framework in Frameworks */,
-				4DBC34581B84D35C00AEF32E /* StoreKit.framework in Frameworks */,
 				4D6E1D5B1B874DED00B9B263 /* ParseUI.framework in Frameworks */,
 				4D6E1D551B874DED00B9B263 /* Bolts.framework in Frameworks */,
 				4DBC34571B84D35200AEF32E /* SystemConfiguration.framework in Frameworks */,
@@ -183,8 +180,6 @@
 		4D2E7CE51B2AE55C007A08F3 = {
 			isa = PBXGroup;
 			children = (
-				4D11F6271BAD9A3C004AFDCD /* libz.dylib */,
-				4D11F6251BAD9A35004AFDCD /* libsqlite3.dylib */,
 				4D2E7CF01B2AE55C007A08F3 /* Tic-Tac-Toe AI */,
 				4D2E7D0A1B2AE55C007A08F3 /* Tic-Tac-Toe AITests */,
 				4D2E7CEF1B2AE55C007A08F3 /* Products */,
@@ -314,6 +309,8 @@
 		4DD8167B1B7F34B700620CF7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4D11F6271BAD9A3C004AFDCD /* libz.dylib */,
+				4D11F6251BAD9A35004AFDCD /* libsqlite3.dylib */,
 				4D5241251BAD86C4000CBDA8 /* Parse.framework */,
 				4D6E1D4E1B874DED00B9B263 /* Bolts.framework */,
 				4D6E1D501B874DED00B9B263 /* ParseCrashReporting.framework */,
@@ -322,7 +319,6 @@
 				4D6E1D531B874DED00B9B263 /* ParseTwitterUtils.framework */,
 				4D6E1D541B874DED00B9B263 /* ParseUI.framework */,
 				4DD816981B7F353300620CF7 /* SystemConfiguration.framework */,
-				4DD816961B7F352900620CF7 /* StoreKit.framework */,
 				4DD816941B7F352200620CF7 /* Security.framework */,
 				4DD816921B7F351600620CF7 /* QuartzCore.framework */,
 				4DD816901B7F350F00620CF7 /* CoreLocation.framework */,
@@ -389,6 +385,12 @@
 				TargetAttributes = {
 					4D2E7CED1B2AE55C007A08F3 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 75F94K2BEH;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
 					};
 					4D2E7D061B2AE55C007A08F3 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -589,12 +591,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/\"/**";
 				INFOPLIST_FILE = "Tic-Tac-Toe AI/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "amir.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -604,12 +609,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/\"/**";
 				INFOPLIST_FILE = "Tic-Tac-Toe AI/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "amir.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
