@@ -75,7 +75,7 @@
 		29E3F9BE1B67F99E00AC15EE /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		4D11F6251BAD9A35004AFDCD /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		4D11F6271BAD9A3C004AFDCD /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		4D2E7CEE1B2AE55C007A08F3 /* Tic-Tac-Toe AI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tic-Tac-Toe AI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D2E7CEE1B2AE55C007A08F3 /* Smarty Toe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smarty Toe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D2E7CF21B2AE55C007A08F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D2E7CF31B2AE55C007A08F3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4D2E7CF51B2AE55C007A08F3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -84,7 +84,7 @@
 		4D2E7CF91B2AE55C007A08F3 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		4D2E7CFC1B2AE55C007A08F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4D2E7CFE1B2AE55C007A08F3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		4D2E7D071B2AE55C007A08F3 /* Tic-Tac-Toe AITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tic-Tac-Toe AITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D2E7D071B2AE55C007A08F3 /* Smarty ToeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Smarty ToeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D2E7D0C1B2AE55C007A08F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D2E7D0D1B2AE55C007A08F3 /* Tic_Tac_Toe_AITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tic_Tac_Toe_AITests.m; sourceTree = "<group>"; };
 		4D2E7D171B2AF1FB007A08F3 /* GameCellUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCellUI.h; sourceTree = "<group>"; };
@@ -180,7 +180,7 @@
 		4D2E7CE51B2AE55C007A08F3 = {
 			isa = PBXGroup;
 			children = (
-				4D2E7CF01B2AE55C007A08F3 /* Tic-Tac-Toe AI */,
+				4D2E7CF01B2AE55C007A08F3 /* Smarty Toe */,
 				4D2E7D0A1B2AE55C007A08F3 /* Tic-Tac-Toe AITests */,
 				4D2E7CEF1B2AE55C007A08F3 /* Products */,
 			);
@@ -189,13 +189,13 @@
 		4D2E7CEF1B2AE55C007A08F3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4D2E7CEE1B2AE55C007A08F3 /* Tic-Tac-Toe AI.app */,
-				4D2E7D071B2AE55C007A08F3 /* Tic-Tac-Toe AITests.xctest */,
+				4D2E7CEE1B2AE55C007A08F3 /* Smarty Toe.app */,
+				4D2E7D071B2AE55C007A08F3 /* Smarty ToeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4D2E7CF01B2AE55C007A08F3 /* Tic-Tac-Toe AI */ = {
+		4D2E7CF01B2AE55C007A08F3 /* Smarty Toe */ = {
 			isa = PBXGroup;
 			children = (
 				4DD8167B1B7F34B700620CF7 /* Frameworks */,
@@ -204,6 +204,7 @@
 				4D2E7D201B2B1114007A08F3 /* UI */,
 				4D2E7CF11B2AE55C007A08F3 /* Supporting Files */,
 			);
+			name = "Smarty Toe";
 			path = "Tic-Tac-Toe AI";
 			sourceTree = "<group>";
 		};
@@ -339,9 +340,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4D2E7CED1B2AE55C007A08F3 /* Tic-Tac-Toe AI */ = {
+		4D2E7CED1B2AE55C007A08F3 /* Smarty Toe */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4D2E7D111B2AE55C007A08F3 /* Build configuration list for PBXNativeTarget "Tic-Tac-Toe AI" */;
+			buildConfigurationList = 4D2E7D111B2AE55C007A08F3 /* Build configuration list for PBXNativeTarget "Smarty Toe" */;
 			buildPhases = (
 				4D2E7CEA1B2AE55C007A08F3 /* Sources */,
 				4D2E7CEB1B2AE55C007A08F3 /* Frameworks */,
@@ -351,14 +352,14 @@
 			);
 			dependencies = (
 			);
-			name = "Tic-Tac-Toe AI";
+			name = "Smarty Toe";
 			productName = "Tic-Tac-Toe AI";
-			productReference = 4D2E7CEE1B2AE55C007A08F3 /* Tic-Tac-Toe AI.app */;
+			productReference = 4D2E7CEE1B2AE55C007A08F3 /* Smarty Toe.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4D2E7D061B2AE55C007A08F3 /* Tic-Tac-Toe AITests */ = {
+		4D2E7D061B2AE55C007A08F3 /* Smarty ToeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4D2E7D141B2AE55C007A08F3 /* Build configuration list for PBXNativeTarget "Tic-Tac-Toe AITests" */;
+			buildConfigurationList = 4D2E7D141B2AE55C007A08F3 /* Build configuration list for PBXNativeTarget "Smarty ToeTests" */;
 			buildPhases = (
 				4D2E7D031B2AE55C007A08F3 /* Sources */,
 				4D2E7D041B2AE55C007A08F3 /* Frameworks */,
@@ -369,9 +370,9 @@
 			dependencies = (
 				4D2E7D091B2AE55C007A08F3 /* PBXTargetDependency */,
 			);
-			name = "Tic-Tac-Toe AITests";
+			name = "Smarty ToeTests";
 			productName = "Tic-Tac-Toe AITests";
-			productReference = 4D2E7D071B2AE55C007A08F3 /* Tic-Tac-Toe AITests.xctest */;
+			productReference = 4D2E7D071B2AE55C007A08F3 /* Smarty ToeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -398,7 +399,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4D2E7CE91B2AE55C007A08F3 /* Build configuration list for PBXProject "Tic-Tac-Toe AI" */;
+			buildConfigurationList = 4D2E7CE91B2AE55C007A08F3 /* Build configuration list for PBXProject "Smarty Toe" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -411,8 +412,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4D2E7CED1B2AE55C007A08F3 /* Tic-Tac-Toe AI */,
-				4D2E7D061B2AE55C007A08F3 /* Tic-Tac-Toe AITests */,
+				4D2E7CED1B2AE55C007A08F3 /* Smarty Toe */,
+				4D2E7D061B2AE55C007A08F3 /* Smarty ToeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -486,7 +487,7 @@
 /* Begin PBXTargetDependency section */
 		4D2E7D091B2AE55C007A08F3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4D2E7CED1B2AE55C007A08F3 /* Tic-Tac-Toe AI */;
+			target = 4D2E7CED1B2AE55C007A08F3 /* Smarty Toe */;
 			targetProxy = 4D2E7D081B2AE55C007A08F3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -598,7 +599,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "amir.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Smarty Toe";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -616,7 +617,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "amir.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Smarty Toe";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -633,7 +634,7 @@
 				INFOPLIST_FILE = "Tic-Tac-Toe AITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "amir.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Smarty ToeTests";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tic-Tac-Toe AI.app/Tic-Tac-Toe AI";
 			};
 			name = Debug;
@@ -645,7 +646,7 @@
 				INFOPLIST_FILE = "Tic-Tac-Toe AITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "amir.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Smarty ToeTests";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tic-Tac-Toe AI.app/Tic-Tac-Toe AI";
 			};
 			name = Release;
@@ -653,7 +654,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4D2E7CE91B2AE55C007A08F3 /* Build configuration list for PBXProject "Tic-Tac-Toe AI" */ = {
+		4D2E7CE91B2AE55C007A08F3 /* Build configuration list for PBXProject "Smarty Toe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4D2E7D0F1B2AE55C007A08F3 /* Debug */,
@@ -662,7 +663,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4D2E7D111B2AE55C007A08F3 /* Build configuration list for PBXNativeTarget "Tic-Tac-Toe AI" */ = {
+		4D2E7D111B2AE55C007A08F3 /* Build configuration list for PBXNativeTarget "Smarty Toe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4D2E7D121B2AE55C007A08F3 /* Debug */,
@@ -671,7 +672,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4D2E7D141B2AE55C007A08F3 /* Build configuration list for PBXNativeTarget "Tic-Tac-Toe AITests" */ = {
+		4D2E7D141B2AE55C007A08F3 /* Build configuration list for PBXNativeTarget "Smarty ToeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4D2E7D151B2AE55C007A08F3 /* Debug */,
