@@ -148,7 +148,7 @@
     }
     
     [UIView animateWithDuration:0.8 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionAllowUserInteraction animations:^{
-        [_gameBoardUI reloadItemsAtIndexPaths:indexPathArr];
+      [self->_gameBoardUI reloadItemsAtIndexPaths:indexPathArr];
         
     } completion:^(BOOL finished) {
         
@@ -195,8 +195,8 @@
 {
     double const offset = -30;
     [UIView animateWithDuration:0.52 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:0 animations:^{
-        _grid.transform =CGAffineTransformMakeTranslation(0, offset);
-        _gameBoardUI.transform =CGAffineTransformMakeTranslation(0, offset);
+      self->_grid.transform =CGAffineTransformMakeTranslation(0, offset);
+      self->_gameBoardUI.transform =CGAffineTransformMakeTranslation(0, offset);
 
     } completion:^(BOOL finished) {
         
@@ -206,8 +206,8 @@
 -(void)newGameAnimationDown
 {
     [UIView animateWithDuration:0.52 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionAllowUserInteraction animations:^{
-        _grid.transform =CGAffineTransformMakeTranslation(0, 0);
-        _gameBoardUI.transform =CGAffineTransformMakeTranslation(0, 0);
+      self->_grid.transform =CGAffineTransformMakeTranslation(0, 0);
+      self->_gameBoardUI.transform =CGAffineTransformMakeTranslation(0, 0);
 
     } completion:^(BOOL finished) {
     }];
@@ -218,8 +218,8 @@
     _grid.transform = CGAffineTransformMakeScale(0.9, 0.9);
     _grid.alpha = 0;
     [UIView animateWithDuration:0.2 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionAllowUserInteraction animations:^{
-        _grid.transform = CGAffineTransformMakeScale(1, 1);
-        _grid.alpha = 1;
+      self->_grid.transform = CGAffineTransformMakeScale(1, 1);
+      self->_grid.alpha = 1;
         
     } completion:^(BOOL finished) {
         [self finishAnimation];
@@ -231,10 +231,10 @@
 -(void)fadeout
 {
     [UIView animateWithDuration:0.25 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        _gameBoardUI.alpha = 0;
-        _gameBoardUI.transform = CGAffineTransformMakeScale(1.2, 1.2);
-        _grid.alpha = 0;
-        _grid.transform = CGAffineTransformMakeScale(1.2, 1.2);
+      self->_gameBoardUI.alpha = 0;
+      self->_gameBoardUI.transform = CGAffineTransformMakeScale(1.2, 1.2);
+      self->_grid.alpha = 0;
+      self->_grid.transform = CGAffineTransformMakeScale(1.2, 1.2);
     } completion:^(BOOL finished) {
         
     }];

@@ -7,7 +7,6 @@
 //
 
 #import "GameViewController.h"
-#import <Parse/Parse.h>
 
 #define GOLDEN_RATIO 0.618
 #define WIDTH_RATIO 0.8
@@ -15,7 +14,7 @@
 #define BACKGROUND_COLOR   Rgb2UIColor(57, 79, 98, 1)
 #define WINDOW_SIZE_HEIGHT  self.view.frame.size.height
 #define WINDOW_SIZE_WIDTH  self.view.frame.size.width
-#define HEIGHT 68
+#define HEIGHT 94
 #define BACKGROUND_COLOR_BRIGHT   Rgb2UIColor(125, 89, 200, 1)
 #define FONT_BOLD(a) [UIFont fontWithName:@"JosefinSans-Bold" size:(a)]
 
@@ -30,7 +29,7 @@
 @property (nonatomic,strong) ButtomScoreBoard *scoreBoard;
 @property (nonatomic,strong) Player *player1;
 @property (nonatomic,strong) Player *player2;
-@property (nonatomic,strong) ButtomButton *resetGameButton;
+@property (nonatomic,strong) BottomButton *resetGameButton;
 @property (nonatomic,strong) NavigationBar *navBar;
 @property (nonatomic,strong) Clock *clock;
 @property (nonatomic,strong) GridLines *grid;
@@ -57,38 +56,7 @@
 
 #pragma mark -  life cycle
 
--(void)saveDataToCluod
-{
-
-    PFObject *gameState = [PFObject objectWithClassName:@"game"];
-    gameState[@"wins"] = [NSNumber numberWithInteger:[_state getWin]];
-    gameState[@"losts"] = [NSNumber numberWithInteger:[_state getLost]];
-    gameState[@"drew"] = [NSNumber numberWithInteger:[_state getDraw]];
-    gameState[@"gameMode"] = [GameMode convertGameModeToString:_gameMode];
-    gameState[@"device"] = [[UIDevice currentDevice] name];
-    gameState[@"level"] = [_levelManager convertLevelToString:_level];
-
-    [gameState addObject:[PFUser currentUser] forKey:@"player"];
-    
-    if ([_state getWin] != 0 || [_state getLost] != 0 || [_state getDraw] !=0 ) {
-        [gameState saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
-         {
-             if (!error)
-             {
-                 
-             }
-             else
-             {
-                 
-             }
-             
-         }
-         ];
-    }else
-    {
-        
-    }
-}
+-(void)saveDataToCluod {}
         
 - (void)viewDidLoad
 {
@@ -113,7 +81,7 @@
     if (!_levelManager) {
         _levelManager = [[levelAlgorithm alloc]init];
     }
-    
+  
     // Do any additional setup after loading the view, typically from a nib.
     
 }
@@ -156,7 +124,7 @@
 -(void)initNavigationBar
 {
     if (!_navBar) {
-        _navBar = [[NavigationBar alloc]initWithFrame:CGRectMake(0, 0, WINDOW_SIZE_WIDTH, 50)];
+        _navBar = [[NavigationBar alloc]initWithFrame:CGRectMake(0, 64, WINDOW_SIZE_WIDTH, 50)];
         [_navBar fadeInAnimation];
         if (_gameMode == xHumanOComputer || _gameMode == xComputerOhuman)
         {
@@ -198,7 +166,7 @@
 -(void)initButtomButton
 {
     if (!_resetGameButton) {
-        _resetGameButton = [[ButtomButton alloc ]initWithFrame:CGRectMake(0, WINDOW_SIZE_HEIGHT, WINDOW_SIZE_WIDTH, 60)];
+        _resetGameButton = [[BottomButton alloc ]initWithFrame:CGRectMake(0, WINDOW_SIZE_HEIGHT, WINDOW_SIZE_WIDTH, 60)];
     }
     _resetGameButton.delegate = self;
     [self.view addSubview:_resetGameButton];
@@ -492,8 +460,8 @@
     [_resetGameButton newGameAnimationDown];
     
     [UIView animateWithDuration:0.20 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        _boardUI.alpha = 0;
-        _boardUI.transform = CGAffineTransformMakeScale(1.1, 1.1);
+      self->_boardUI.alpha = 0;
+      self->_boardUI.transform = CGAffineTransformMakeScale(1.1, 1.1);
         
     } completion:nil];
 }
@@ -602,7 +570,7 @@
     }
 }
 
--(void)buttonPress:(ButtomButton *)button
+-(void)buttonPress:(BottomButton *)button
 {
     [self resetGame];
     _pause = NO;

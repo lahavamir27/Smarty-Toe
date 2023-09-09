@@ -39,7 +39,7 @@
 @property (nonatomic,strong) UILabel * threeInARowSquare;
 
 @property (nonatomic,strong) NSMutableArray * markerArray;
-@property (nonatomic,strong) ButtomButton * startGameButton;
+@property (nonatomic,strong) BottomButton * startGameButton;
 @property (nonatomic,strong) UIScrollView * scrollView;
 
 @property (nonatomic,strong) UIView * welcomeContainerView;
@@ -84,6 +84,7 @@
     
     [defaults setObject:[NSNumber numberWithBool:_watchIntro] forKey:@"watch"];
 
+  [self setModalPresentationStyle: UIModalPresentationFullScreen];
     // Do any additional setup after loading the view.
 }
 
@@ -172,8 +173,8 @@
     _grid.transform = CGAffineTransformMakeTranslation(0, offset);
     
     [UIView animateWithDuration:.8 delay:0.5 usingSpringWithDamping:.6 initialSpringVelocity:1 options:UIViewAnimationOptionAllowUserInteraction animations:^{
-        _grid.alpha = 1;
-        _grid.transform = CGAffineTransformMakeTranslation(0, 0);
+      self->_grid.alpha = 1;
+      self->_grid.transform = CGAffineTransformMakeTranslation(0, 0);
     } completion:nil];
 
 }
@@ -184,7 +185,7 @@
 {
     double const depth = 60;
     if (!_startGameButton) {
-        _startGameButton = [[ButtomButton alloc ]initWithFrame:CGRectMake(0, WINDOW_SIZE_HEIGHT, WINDOW_SIZE_WIDTH, 60)];
+        _startGameButton = [[BottomButton alloc ]initWithFrame:CGRectMake(0, WINDOW_SIZE_HEIGHT, WINDOW_SIZE_WIDTH, 60)];
     }
     _startGameButton.delegate = self;
     [self.view addSubview:_startGameButton];
@@ -545,7 +546,7 @@
     
         CGAffineTransform scaleTrans  = CGAffineTransformMakeScale(1, 1);
         CGAffineTransform lefttorightTrans  = CGAffineTransformMakeTranslation(0, - lift * ratio);
-        _grid.transform = CGAffineTransformConcat(scaleTrans, lefttorightTrans);
+      self->_grid.transform = CGAffineTransformConcat(scaleTrans, lefttorightTrans);
     } completion:^(BOOL finished) {
     }];
 }
@@ -562,9 +563,9 @@
 {
     double gap = 47;
     [UIView animateWithDuration:0.7 delay:0.1 usingSpringWithDamping:1 initialSpringVelocity:1 options:0 animations:^{
-        _smartySubTitleLabel.center = CGPointMake(WINDOW_SIZE_WIDTH/2, WINDOW_SIZE_HEIGHT*.63+gap);
+      self->_smartySubTitleLabel.center = CGPointMake(WINDOW_SIZE_WIDTH/2, WINDOW_SIZE_HEIGHT*.63+gap);
     } completion:^(BOOL finished) {
-        _scrollView.scrollEnabled = YES;
+      self->_scrollView.scrollEnabled = YES;
     }];
 }
 
@@ -575,8 +576,8 @@
     
     
     [UIView animateWithDuration:0.3 delay:0.00 options:UIViewAnimationOptionCurveEaseIn  | UIViewAnimationOptionBeginFromCurrentState animations:^{
-        _multyPlayerImageView.transform = CGAffineTransformMakeTranslation(-1000, 0);
-        _multyPlayerImageView.alpha = 0;
+      self->_multyPlayerImageView.transform = CGAffineTransformMakeTranslation(-1000, 0);
+      self->_multyPlayerImageView.alpha = 0;
     } completion:^(BOOL finished) {
     }];
     [self performSelector:@selector(modalToMainViewController) withObject:nil afterDelay:0.5];
@@ -587,8 +588,8 @@
 {
     
     [UIView animateWithDuration:0.3 delay:0.00 options:UIViewAnimationOptionCurveEaseIn  | UIViewAnimationOptionAllowUserInteraction animations:^{
-        _MultiPlayerTitle.transform = CGAffineTransformMakeTranslation(-700, 0);
-        _MultiPlayerTitle.alpha = 0;
+      self->_MultiPlayerTitle.transform = CGAffineTransformMakeTranslation(-700, 0);
+      self->_MultiPlayerTitle.alpha = 0;
     } completion:^(BOOL finished) {
         
     }];
@@ -596,8 +597,8 @@
 -(void)animateSubTitleLeft
 {
     [UIView animateWithDuration:0.3 delay:0.00 options:UIViewAnimationOptionCurveEaseIn animations:^{
-        _MultiPlayerSubTitle.transform = CGAffineTransformMakeTranslation(-550, 0);
-        _MultiPlayerSubTitle.alpha = 0;
+      self->_MultiPlayerSubTitle.transform = CGAffineTransformMakeTranslation(-550, 0);
+      self->_MultiPlayerSubTitle.alpha = 0;
     } completion:^(BOOL finished) {
         
     }];
@@ -605,8 +606,8 @@
 {
     
     [UIView animateWithDuration:0.3 delay:0.00 options:UIViewAnimationOptionCurveEaseIn animations:^{
-        _pageControl.transform = CGAffineTransformMakeTranslation(-150, 0);
-        _pageControl.alpha = 0;
+      self->_pageControl.transform = CGAffineTransformMakeTranslation(-150, 0);
+      self->_pageControl.alpha = 0;
     } completion:^(BOOL finished) {
         
     }];
@@ -620,7 +621,7 @@
     {
         
         [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-            [_markerArray[i] setAlpha:0.05];
+          [self->_markerArray[i] setAlpha:0.05];
         } completion:^(BOOL finished) {
             
         }];
@@ -636,12 +637,12 @@
 -(void)blinkImageViewAnimation
 {
     [UIView animateWithDuration:.75 animations:^{
-        _disclosureImageView.alpha = 0.6;
+      self->_disclosureImageView.alpha = 0.6;
         
     } completion:^(BOOL finished)
      {
          [UIView animateWithDuration:.75 animations:^{
-             _disclosureImageView.alpha = 0.0;
+           self->_disclosureImageView.alpha = 0.0;
          }];
      }];
     
@@ -674,8 +675,8 @@
     _threeInARowSquare.transform = CGAffineTransformMakeScale(0.1, 0.1);
     _threeInARowSquare.alpha = 0;
     [UIView animateWithDuration:0.4 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:0 animations:^{
-        _threeInARowSquare.transform = CGAffineTransformMakeScale(1, 1);
-        _threeInARowSquare.alpha = 1;
+      self->_threeInARowSquare.transform = CGAffineTransformMakeScale(1, 1);
+      self->_threeInARowSquare.alpha = 1;
     } completion:^(BOOL finished) {
         
     }];
@@ -794,11 +795,11 @@
 -(void)contentOffsetWithAnimation:(CGPoint)flt
 {
         [UIView animateWithDuration:0.5 animations:^ {
-            [_scrollView setContentOffset:flt animated:YES];
+          [self->_scrollView setContentOffset:flt animated:YES];
         }];
 }
 
--(void)buttonPress:(ButtomButton *)button
+-(void)buttonPress:(BottomButton *)button
 {
     switch ((int)_currentPage) {
         case 0:

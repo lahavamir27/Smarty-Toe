@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -28,13 +28,6 @@
 		4D30A29C1B3EC741005AC530 /* Clock.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D30A29B1B3EC741005AC530 /* Clock.m */; };
 		4D30A2A41B42FFD7005AC530 /* back1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D30A2A31B42FFD7005AC530 /* back1.png */; };
 		4D3D5D391B713CE5005AF774 /* gameScoreState.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D5D381B713CE5005AF774 /* gameScoreState.m */; };
-		4D5241261BAD86C4000CBDA8 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D5241251BAD86C4000CBDA8 /* Parse.framework */; };
-		4D6E1D551B874DED00B9B263 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6E1D4E1B874DED00B9B263 /* Bolts.framework */; };
-		4D6E1D571B874DED00B9B263 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6E1D501B874DED00B9B263 /* ParseCrashReporting.framework */; };
-		4D6E1D581B874DED00B9B263 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6E1D511B874DED00B9B263 /* ParseFacebookUtils.framework */; };
-		4D6E1D591B874DED00B9B263 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6E1D521B874DED00B9B263 /* ParseFacebookUtilsV4.framework */; };
-		4D6E1D5A1B874DED00B9B263 /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6E1D531B874DED00B9B263 /* ParseTwitterUtils.framework */; };
-		4D6E1D5B1B874DED00B9B263 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6E1D541B874DED00B9B263 /* ParseUI.framework */; };
 		4D7691F91B767922009922F3 /* SMPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7691F81B767922009922F3 /* SMPageControl.m */; };
 		4DBB1BAA1B7294E20087BE8C /* OnboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DBB1BA91B7294E20087BE8C /* OnboardViewController.m */; };
 		4DBB1BAC1B74B0950087BE8C /* arrowLeft-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DBB1BAB1B74B0950087BE8C /* arrowLeft-1.png */; };
@@ -49,7 +42,7 @@
 		4DBC345E1B84D3C500AEF32E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DD8168E1B7F350600620CF7 /* CoreGraphics.framework */; };
 		4DBC345F1B84D3CD00AEF32E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DD8168C1B7F34FF00620CF7 /* CFNetwork.framework */; };
 		4DBC34601B84D3D700AEF32E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DD8168A1B7F34F700620CF7 /* AudioToolbox.framework */; };
-		4DD649691B3DA5A8006DF972 /* ButtomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD649681B3DA5A8006DF972 /* ButtomButton.m */; };
+		4DD649691B3DA5A8006DF972 /* BottomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD649681B3DA5A8006DF972 /* BottomButton.m */; };
 		4DD6496D1B3DC68D006DF972 /* NavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD6496C1B3DC68D006DF972 /* NavigationBar.m */; };
 		4DD816A01B7F517E00620CF7 /* GameMode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8169F1B7F517E00620CF7 /* GameMode.m */; };
 		4DD816A31B8395B100620CF7 /* UIColor+ExtendedColorScheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DD816A21B8395B100620CF7 /* UIColor+ExtendedColorScheme.m */; };
@@ -106,13 +99,6 @@
 		4D30A2A31B42FFD7005AC530 /* back1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back1.png; sourceTree = "<group>"; };
 		4D3D5D371B713CE4005AF774 /* gameScoreState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gameScoreState.h; sourceTree = "<group>"; };
 		4D3D5D381B713CE5005AF774 /* gameScoreState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = gameScoreState.m; sourceTree = "<group>"; };
-		4D5241251BAD86C4000CBDA8 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		4D6E1D4E1B874DED00B9B263 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		4D6E1D501B874DED00B9B263 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
-		4D6E1D511B874DED00B9B263 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
-		4D6E1D521B874DED00B9B263 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
-		4D6E1D531B874DED00B9B263 /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseTwitterUtils.framework; sourceTree = "<group>"; };
-		4D6E1D541B874DED00B9B263 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		4D7691F71B767922009922F3 /* SMPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPageControl.h; sourceTree = "<group>"; };
 		4D7691F81B767922009922F3 /* SMPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPageControl.m; sourceTree = "<group>"; };
 		4DBB1BA81B7294E20087BE8C /* OnboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OnboardViewController.h; sourceTree = "<group>"; };
@@ -122,8 +108,8 @@
 		4DBB1BAF1B74B1C20087BE8C /* ic_arrow_back_white_24dp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_arrow_back_white_24dp.png; sourceTree = "<group>"; };
 		4DBB1BB11B74B2A90087BE8C /* Back-100 (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Back-100 (1).png"; sourceTree = "<group>"; };
 		4DBB1BB31B74B3280087BE8C /* Previous.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Previous.png; sourceTree = "<group>"; };
-		4DD649671B3DA5A8006DF972 /* ButtomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtomButton.h; sourceTree = "<group>"; };
-		4DD649681B3DA5A8006DF972 /* ButtomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtomButton.m; sourceTree = "<group>"; };
+		4DD649671B3DA5A8006DF972 /* BottomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottomButton.h; sourceTree = "<group>"; };
+		4DD649681B3DA5A8006DF972 /* BottomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomButton.m; sourceTree = "<group>"; };
 		4DD6496B1B3DC68D006DF972 /* NavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationBar.h; sourceTree = "<group>"; };
 		4DD6496C1B3DC68D006DF972 /* NavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationBar.m; sourceTree = "<group>"; };
 		4DD8168A1B7F34F700620CF7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -150,20 +136,13 @@
 			files = (
 				4D11F6281BAD9A3C004AFDCD /* libz.dylib in Frameworks */,
 				4D11F6261BAD9A35004AFDCD /* libsqlite3.dylib in Frameworks */,
-				4D6E1D581B874DED00B9B263 /* ParseFacebookUtils.framework in Frameworks */,
 				4DBC34601B84D3D700AEF32E /* AudioToolbox.framework in Frameworks */,
 				4DBC345F1B84D3CD00AEF32E /* CFNetwork.framework in Frameworks */,
 				4DBC345E1B84D3C500AEF32E /* CoreGraphics.framework in Frameworks */,
-				4D5241261BAD86C4000CBDA8 /* Parse.framework in Frameworks */,
 				4DBC345D1B84D3BB00AEF32E /* CoreLocation.framework in Frameworks */,
 				4DBC345C1B84D3B300AEF32E /* QuartzCore.framework in Frameworks */,
-				4D6E1D5A1B874DED00B9B263 /* ParseTwitterUtils.framework in Frameworks */,
 				4DBC345B1B84D3A800AEF32E /* Security.framework in Frameworks */,
-				4D6E1D5B1B874DED00B9B263 /* ParseUI.framework in Frameworks */,
-				4D6E1D551B874DED00B9B263 /* Bolts.framework in Frameworks */,
 				4DBC34571B84D35200AEF32E /* SystemConfiguration.framework in Frameworks */,
-				4D6E1D571B874DED00B9B263 /* ParseCrashReporting.framework in Frameworks */,
-				4D6E1D591B874DED00B9B263 /* ParseFacebookUtilsV4.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,8 +231,8 @@
 				4D2E7D181B2AF1FB007A08F3 /* GameCellUI.m */,
 				4D2E7D2B1B344EC2007A08F3 /* ButtomScoreBoard.h */,
 				4D2E7D2C1B344EC2007A08F3 /* ButtomScoreBoard.m */,
-				4DD649671B3DA5A8006DF972 /* ButtomButton.h */,
-				4DD649681B3DA5A8006DF972 /* ButtomButton.m */,
+				4DD649671B3DA5A8006DF972 /* BottomButton.h */,
+				4DD649681B3DA5A8006DF972 /* BottomButton.m */,
 				4DD6496B1B3DC68D006DF972 /* NavigationBar.h */,
 				4DD6496C1B3DC68D006DF972 /* NavigationBar.m */,
 				4DBB1BAB1B74B0950087BE8C /* arrowLeft-1.png */,
@@ -312,13 +291,6 @@
 			children = (
 				4D11F6271BAD9A3C004AFDCD /* libz.dylib */,
 				4D11F6251BAD9A35004AFDCD /* libsqlite3.dylib */,
-				4D5241251BAD86C4000CBDA8 /* Parse.framework */,
-				4D6E1D4E1B874DED00B9B263 /* Bolts.framework */,
-				4D6E1D501B874DED00B9B263 /* ParseCrashReporting.framework */,
-				4D6E1D511B874DED00B9B263 /* ParseFacebookUtils.framework */,
-				4D6E1D521B874DED00B9B263 /* ParseFacebookUtilsV4.framework */,
-				4D6E1D531B874DED00B9B263 /* ParseTwitterUtils.framework */,
-				4D6E1D541B874DED00B9B263 /* ParseUI.framework */,
 				4DD816981B7F353300620CF7 /* SystemConfiguration.framework */,
 				4DD816941B7F352200620CF7 /* Security.framework */,
 				4DD816921B7F351600620CF7 /* QuartzCore.framework */,
@@ -381,7 +353,8 @@
 		4D2E7CE61B2AE55C007A08F3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
 				ORGANIZATIONNAME = "amir lahav";
 				TargetAttributes = {
 					4D2E7CED1B2AE55C007A08F3 = {
@@ -401,7 +374,7 @@
 			};
 			buildConfigurationList = 4D2E7CE91B2AE55C007A08F3 /* Build configuration list for PBXProject "Smarty Toe" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -459,7 +432,7 @@
 				4D2E7CF71B2AE55C007A08F3 /* AppDelegate.m in Sources */,
 				4D3D5D391B713CE5005AF774 /* gameScoreState.m in Sources */,
 				4D7691F91B767922009922F3 /* SMPageControl.m in Sources */,
-				4DD649691B3DA5A8006DF972 /* ButtomButton.m in Sources */,
+				4DD649691B3DA5A8006DF972 /* BottomButton.m in Sources */,
 				4DE8861E1B3B3ECF00D8D80D /* PlayerType.m in Sources */,
 				4D2E7D301B35873F007A08F3 /* GridLines.m in Sources */,
 				4D30A29C1B3EC741005AC530 /* Clock.m in Sources */,
@@ -508,17 +481,29 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -542,10 +527,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos9.0;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -553,17 +538,29 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -580,9 +577,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos9.0;
+				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -596,8 +593,11 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/\"/**";
 				INFOPLIST_FILE = "Tic-Tac-Toe AI/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "amir.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "Smarty Toe";
 				PROVISIONING_PROFILE = "";
@@ -614,8 +614,11 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/\"/**";
 				INFOPLIST_FILE = "Tic-Tac-Toe AI/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "amir.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "Smarty Toe";
 				PROVISIONING_PROFILE = "";
@@ -632,7 +635,11 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Tic-Tac-Toe AITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "amir.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "Smarty ToeTests";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tic-Tac-Toe AI.app/Tic-Tac-Toe AI";
@@ -644,7 +651,11 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "Tic-Tac-Toe AITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "amir.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "Smarty ToeTests";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tic-Tac-Toe AI.app/Tic-Tac-Toe AI";

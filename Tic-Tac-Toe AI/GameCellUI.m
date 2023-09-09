@@ -77,8 +77,8 @@
     _lbl.transform = CGAffineTransformMakeScale(0.6, 0.6);
     
     [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:0 animations:^{
-        _lbl.alpha = 1;
-        _lbl.transform = CGAffineTransformMakeScale(1, 1);
+      self->_lbl.alpha = 1;
+      self->_lbl.transform = CGAffineTransformMakeScale(1, 1);
     } completion:^(BOOL finished) {
         
     }];
@@ -104,8 +104,8 @@
         
     }];
     [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:0 animations:^{
-        _lbl.alpha = 1;
-        _lbl.transform = CGAffineTransformMakeScale(1, 1);
+      self->_lbl.alpha = 1;
+      self->_lbl.transform = CGAffineTransformMakeScale(1, 1);
         
     } completion:^(BOOL finished) {
         

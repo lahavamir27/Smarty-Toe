@@ -41,7 +41,7 @@
 @property (strong,nonatomic) UIViewController *modal;
 
 @property (nonatomic,strong) LogoView *logo;
-@property (nonatomic,strong) ButtomButton *startGameButton;
+@property (nonatomic,strong) BottomButton *startGameButton;
 @property BOOL test;
 
 @end
@@ -120,6 +120,7 @@
     if (IPAD) {
         _container.center = CGPointMake(width, _container.frame.origin.y+_container.frame.size.height/2);
     }
+  
 }
 
 -(void)initHeaderContainer
@@ -213,7 +214,7 @@
 -(void)initButtomButton
 {
     if (!_startGameButton) {
-        _startGameButton = [[ButtomButton alloc ]initWithFrame:CGRectMake(0, WINDOW_SIZE_HEIGHT, WINDOW_SIZE_WIDTH, 60)];
+        _startGameButton = [[BottomButton alloc ]initWithFrame:CGRectMake(0, WINDOW_SIZE_HEIGHT, WINDOW_SIZE_WIDTH, 60)];
     }
     _startGameButton.delegate = self;
     [_startGameButton setTitle:@"New Game"];
@@ -244,7 +245,7 @@
     if (_container) {
         _container.transform = CGAffineTransformMakeTranslation(0, + WINDOW_SIZE_HEIGHT * (1-0.64));
         [UIView animateWithDuration:.7 delay:.1 usingSpringWithDamping:1 initialSpringVelocity:1 options:0 animations:^{
-            _container.transform = CGAffineTransformMakeTranslation(0, 0);
+          self->_container.transform = CGAffineTransformMakeTranslation(0, 0);
         } completion:^(BOOL finished) {
             
         }];
@@ -260,7 +261,7 @@
         double const drop = WINDOW_SIZE_HEIGHT - _headerContainer.frame.origin.y;
         _headerContainer.transform = CGAffineTransformMakeTranslation(0, + drop);
         [UIView animateWithDuration:.7 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:0 animations:^{
-            _headerContainer.transform = CGAffineTransformMakeTranslation(0, 0);
+          self->_headerContainer.transform = CGAffineTransformMakeTranslation(0, 0);
         } completion:^(BOOL finished) {
             
         }];
@@ -382,7 +383,7 @@
 #pragma mark -  delegate
 
 
--(void)buttonPress:(ButtomButton *)button
+-(void)buttonPress:(BottomButton *)button
 {
     if ([self getGameMode] == -1) {
     }else
@@ -443,20 +444,20 @@
 {
     
     [UIView animateWithDuration:0.3 delay:0.09 options:UIViewAnimationOptionCurveEaseIn animations:^{
-        _logo.transform = CGAffineTransformMakeTranslation(0,+60);
-        _logo.alpha = 0;
+      self->_logo.transform = CGAffineTransformMakeTranslation(0,+60);
+      self->_logo.alpha = 0;
     } completion:^(BOOL finished) {
         [self performSegueWithIdentifier:@"gamePage" sender:nil];
 
     }];
     
     [UIView animateWithDuration:0.35 delay:0.06 options:UIViewAnimationOptionCurveEaseIn animations:^{
-                _headerContainer.transform = CGAffineTransformMakeTranslation(0, WINDOW_SIZE_HEIGHT - _headerContainer.frame.origin.y);
+      self->_headerContainer.transform = CGAffineTransformMakeTranslation(0, WINDOW_SIZE_HEIGHT - self->_headerContainer.frame.origin.y);
     } completion:^(BOOL finished) {
 
     }];
     [UIView animateWithDuration:0.30 delay:0.03 options:UIViewAnimationOptionCurveEaseIn animations:^{
-        _container.transform = CGAffineTransformMakeTranslation(0, WINDOW_SIZE_HEIGHT - _container.frame.origin.y);
+      self->_container.transform = CGAffineTransformMakeTranslation(0, WINDOW_SIZE_HEIGHT - self->_container.frame.origin.y);
     } completion:^(BOOL finished) {
 
     }];

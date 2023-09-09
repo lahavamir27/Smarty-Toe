@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "GameViewController.h"
 #import "LogoView.h"
-#import "ButtomButton.h"
+#import "BottomButton.h"
 #import "GameMode.h"
 
 @interface StartViewController : UIViewController

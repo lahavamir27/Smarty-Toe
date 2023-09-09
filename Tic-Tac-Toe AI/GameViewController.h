@@ -10,7 +10,7 @@
 #import "GameBoardUI.h"
 #import "Ai.h"
 #import "ButtomScoreBoard.h"
-#import "ButtomButton.h"
+#import "BottomButton.h"
 #import "NavigationBar.h"
 #import "Clock.h"
 #import "StartViewController.h"

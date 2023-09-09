@@ -72,8 +72,8 @@
     
     _alert.transform = CGAffineTransformMakeScale(0.1, 0.1);
     [UIView animateWithDuration:.8 delay:0 usingSpringWithDamping:.5 initialSpringVelocity:1 options:0 animations:^{
-        _alert.alpha = 1;
-        _alert.transform = CGAffineTransformMakeScale(1, 1);
+      self->_alert.alpha = 1;
+      self->_alert.transform = CGAffineTransformMakeScale(1, 1);
 
     } completion:^(BOOL finished) {
 
@@ -86,12 +86,12 @@
     if (_alert) {
         
         [UIView animateWithDuration:.8 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:0 animations:^{
-            _alert.alpha = 0;
-            _alert.transform = CGAffineTransformMakeScale(0.1, 0.1);
+          self->_alert.alpha = 0;
+          self->_alert.transform = CGAffineTransformMakeScale(0.1, 0.1);
             
         } completion:^(BOOL finished) {
-            [_alert removeFromSuperview];
-            _alert = nil;
+          [self->_alert removeFromSuperview];
+          self->_alert = nil;
         }];
     }
 

@@ -1,36 +1,46 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="S01-pu-ogk">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="S01-pu-ogk">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Game View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="GameViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dUG-ia-YUp"/>
+                        <viewControllerLayoutGuide type="bottom" id="OYF-n3-Xtc"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <segue destination="Kzi-dd-wZ0" kind="modal" identifier="back" modalTransitionStyle="crossDissolve" animates="NO" id="GK3-RO-8Z2"/>
+                        <segue destination="Kzi-dd-wZ0" kind="modal" identifier="back" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="GK3-RO-8Z2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="482" y="289"/>
+            <point key="canvasLocation" x="1109" y="235"/>
         </scene>
         <!--Start View Controller-->
         <scene sceneID="SOQ-ya-O1Y">
             <objects>
                 <viewController id="Kzi-dd-wZ0" customClass="StartViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8Fw-ri-hX8"/>
+                        <viewControllerLayoutGuide type="bottom" id="ynt-De-Ukr"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="RHb-SN-Wik">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fMS-yf-hlt">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fMS-yf-hlt">
                                 <rect key="frame" x="282" y="20" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
@@ -38,71 +48,74 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="VNK-I6-0ed"/>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="modal" identifier="gamePage" modalTransitionStyle="crossDissolve" animates="NO" id="zzf-RU-BkO"/>
-                        <segue destination="5Fs-9x-Tdz" kind="modal" identifier="HalfModal" id="lgK-mM-DeD"/>
+                        <segue destination="vXZ-lx-hvc" kind="modal" identifier="gamePage" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="zzf-RU-BkO"/>
+                        <segue destination="5Fs-9x-Tdz" kind="modal" identifier="HalfModal" modalPresentationStyle="fullScreen" id="lgK-mM-DeD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vqg-6h-8P9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="103" y="297"/>
+            <point key="canvasLocation" x="157.25190839694656" y="209.1549295774648"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Nn9-PM-D8K">
             <objects>
                 <viewController storyboardIdentifier="HalfModal" id="5Fs-9x-Tdz" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DCr-qk-3bA"/>
+                        <viewControllerLayoutGuide type="bottom" id="m0Z-jy-9Vh"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Dwy-cS-pNF">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uxi-hO-azP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="103" y="1012"/>
+            <point key="canvasLocation" x="156" y="1025"/>
         </scene>
         <!--Onboard View Controller-->
         <scene sceneID="ocy-KC-xRa">
             <objects>
                 <viewController id="S01-pu-ogk" customClass="OnboardViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rU4-Kv-Afe"/>
+                        <viewControllerLayoutGuide type="bottom" id="gjY-Mx-Ybk"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="TM3-uX-u5p">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The first Tic Tac Toe that fits you. is it too easy for you? no problem Smarty will make it harder." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Y7y-BG-eh4">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The first Tic Tac Toe that fits you. is it too easy for you? no problem Smarty will make it harder." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7y-BG-eh4">
                                 <rect key="frame" x="47" y="462" width="225" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="15"/>
-                                <color key="textColor" red="0.69019607843137254" green="0.76862745098039209" blue="0.83137254901960778" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.69019607843137254" green="0.76862745098039209" blue="0.83137254901960778" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Smarty Toe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8bC-fA-G2k">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Smarty Toe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8bC-fA-G2k">
                                 <rect key="frame" x="80" y="424" width="160" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="30"/>
-                                <color key="textColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <segue destination="Kzi-dd-wZ0" kind="modal" identifier="main" animates="NO" id="bHR-S7-5oj"/>
+                        <segue destination="Kzi-dd-wZ0" kind="modal" identifier="main" animates="NO" modalPresentationStyle="fullScreen" id="bHR-S7-5oj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JYW-ms-tpY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-304" y="302"/>
+            <point key="canvasLocation" x="-1315" y="266"/>
         </scene>
     </scenes>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="bHR-S7-5oj"/>
+        <segue reference="GK3-RO-8Z2"/>
     </inferredMetricsTieBreakers>
 </document>

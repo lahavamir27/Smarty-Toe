@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GridLines.h"
-#import "ButtomButton.h"
+#import "BottomButton.h"
 #import "SMPageControl.h"
 #import "UIColor+ExtendedColorScheme.h"
 
